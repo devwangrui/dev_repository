@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.YzNewsDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzNews">
+    <id column="news_id" jdbcType="INTEGER" property="newsId" />
+    <result column="news_title" jdbcType="VARCHAR" property="newsTitle" />
+    <result column="news_date" jdbcType="VARCHAR" property="newsDate" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="del_code" jdbcType="INTEGER" property="delCode" />
+    <result column="news_content" jdbcType="VARCHAR" property="newsContent" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    news_id, news_title, news_date, user_id, del_code
+  </sql>
+  <sql id="Blob_Column_List">
+    news_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from yz_news
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from yz_news
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzNews">
+    insert into yz_news (news_id, news_title, news_date, 
+      user_id, del_code, news_content
+      )
+    values (#{newsId,jdbcType=INTEGER}, #{newsTitle,jdbcType=VARCHAR}, #{newsDate,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER}, #{delCode,jdbcType=INTEGER}, #{newsContent,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzNews">
+    insert into yz_news
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="newsId != null">
+        news_id,
+      </if>
+      <if test="newsTitle != null">
+        news_title,
+      </if>
+      <if test="newsDate != null">
+        news_date,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="delCode != null">
+        del_code,
+      </if>
+      <if test="newsContent != null">
+        news_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="newsId != null">
+        #{newsId,jdbcType=INTEGER},
+      </if>
+      <if test="newsTitle != null">
+        #{newsTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="newsDate != null">
+        #{newsDate,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="delCode != null">
+        #{delCode,jdbcType=INTEGER},
+      </if>
+      <if test="newsContent != null">
+        #{newsContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzNews">
+    update yz_news
+    <set>
+      <if test="newsTitle != null">
+        news_title = #{newsTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="newsDate != null">
+        news_date = #{newsDate,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="delCode != null">
+        del_code = #{delCode,jdbcType=INTEGER},
+      </if>
+      <if test="newsContent != null">
+        news_content = #{newsContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.example.zhengai.model.YzNews">
+    update yz_news
+    set news_title = #{newsTitle,jdbcType=VARCHAR},
+      news_date = #{newsDate,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      del_code = #{delCode,jdbcType=INTEGER},
+      news_content = #{newsContent,jdbcType=VARCHAR}
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzNews">
+    update yz_news
+    set news_title = #{newsTitle,jdbcType=VARCHAR},
+      news_date = #{newsDate,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      del_code = #{delCode,jdbcType=INTEGER}
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectNewsToHomePage" resultMap="BaseResultMap" >
+    select * from yz_news WHERE del_code=0 ORDER BY news_date DESC LIMIT 0,6
+  </select>
+</mapper>

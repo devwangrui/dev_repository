@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zhengai.dao.YzControllerSDao" >
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzControllerS" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="rank" property="rank" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="VARCHAR" />
+    <result column="add_uid" property="addUid" jdbcType="INTEGER" />
+    <result column="edit_time" property="editTime" jdbcType="VARCHAR" />
+    <result column="edit_uid" property="editUid" jdbcType="INTEGER" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+    <result column="del_time" property="delTime" jdbcType="VARCHAR" />
+    <result column="del_uid" property="delUid" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <!-- 2018.12.18 17:33新增 -->
+  <resultMap type="com.example.zhengai.model.YzControllerS" id="listController" extends="BaseResultMap">
+  	<collection property="user" ofType="com.example.zhengai.model.YzController">
+    	<id column="id1" property="id" jdbcType="INTEGER" />
+    	<result column="ti" property="title" jdbcType="VARCHAR" />
+    	<result column="ra" property="rank" jdbcType="INTEGER" />
+    	<result column="is_show" property="isShow" jdbcType="INTEGER" />
+    	<result column="controller" property="controller" jdbcType="VARCHAR" />
+    	<result column="sort" property="sort" jdbcType="INTEGER" />
+    	<result column="t_id" property="tId" jdbcType="INTEGER" />
+    	<result column="add_time" property="addTime" jdbcType="VARCHAR" />
+    	<result column="add_uid" property="addUid" jdbcType="INTEGER" />
+    	<result column="edit_time" property="editTime" jdbcType="VARCHAR" />
+    	<result column="edit_uid" property="editUid" jdbcType="INTEGER" />
+    	<result column="is_del" property="isDel" jdbcType="INTEGER" />
+    	<result column="del_time" property="delTime" jdbcType="VARCHAR" />
+    	<result column="del_uid" property="delUid" jdbcType="INTEGER" />
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, icon, `rank`, add_time, add_uid, edit_time, edit_uid, is_del, del_time, 
+    del_uid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yz_controller_s
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yz_controller_s
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzControllerS" >
+    insert into yz_controller_s (id, title, icon, 
+      `rank`, add_time, add_uid, 
+      edit_time, edit_uid, is_del, 
+      del_time, del_uid)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
+      #{rank,jdbcType=INTEGER}, #{addTime,jdbcType=VARCHAR}, #{addUid,jdbcType=INTEGER}, 
+      #{editTime,jdbcType=VARCHAR}, #{editUid,jdbcType=INTEGER}, #{isDel,jdbcType=INTEGER}, 
+      #{delTime,jdbcType=VARCHAR}, #{delUid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzControllerS" >
+    insert into yz_controller_s
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="rank != null" >
+        `rank`,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="addUid != null" >
+        add_uid,
+      </if>
+      <if test="editTime != null" >
+        edit_time,
+      </if>
+      <if test="editUid != null" >
+        edit_uid,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="delTime != null" >
+        del_time,
+      </if>
+      <if test="delUid != null" >
+        del_uid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null" >
+        #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="addUid != null" >
+        #{addUid,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="editUid != null" >
+        #{editUid,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null" >
+        #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delUid != null" >
+        #{delUid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzControllerS" >
+    update yz_controller_s
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null" >
+        `rank` = #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="addUid != null" >
+        add_uid = #{addUid,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null" >
+        edit_time = #{editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="editUid != null" >
+        edit_uid = #{editUid,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null" >
+        del_time = #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delUid != null" >
+        del_uid = #{delUid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzControllerS" >
+    update yz_controller_s
+    set title = #{title,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      `rank` = #{rank,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=VARCHAR},
+      add_uid = #{addUid,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=VARCHAR},
+      edit_uid = #{editUid,jdbcType=INTEGER},
+      is_del = #{isDel,jdbcType=INTEGER},
+      del_time = #{delTime,jdbcType=VARCHAR},
+      del_uid = #{delUid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectALLControllers" resultType="com.example.zhengai.model.YzControllerS">
+  select  * from yz_controller_s where is_del=0;
+  </select>
+  <!-- 2018.12.18 17:41新增 -->
+  <select id="selectAll" resultMap="listController" >
+  SELECT a.id, a.title, a.icon, a.`rank`, a.add_time, a.add_uid, a.edit_time, a.edit_uid, a.is_del, a.del_time, 
+    a.del_uid,b.id as id1, b.title as ti, b.`rank` as ra, b.is_show, b.controller, b.sort, b.t_id, b.add_time, b.add_uid, b.edit_time, b.edit_uid, 
+    b.is_del, b.del_time, b.del_uid	FROM  `yz_controller_s` as a
+LEFT JOIN `yz_controller` as b
+ON  b.is_del=0 And a.id=b.sort
+WHERE a.is_del=0;
+  </select>
+</mapper>

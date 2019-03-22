@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test
+END
+defaultConfig.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/defaultConfig.tests.js
+END
+core.plugin.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/core.plugin.tests.js
+END
+scale.category.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/scale.category.tests.js
+END
+controller.bar.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/controller.bar.tests.js
+END
+element.arc.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/element.arc.tests.js
+END
+controller.bubble.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/controller.bubble.tests.js
+END
+element.point.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/element.point.tests.js
+END
+element.rectangle.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/element.rectangle.tests.js
+END
+core.legend.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/core.legend.tests.js
+END
+core.layoutService.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/core.layoutService.tests.js
+END
+scale.logarithmic.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/scale.logarithmic.tests.js
+END
+core.scaleService.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/core.scaleService.tests.js
+END
+controller.polarArea.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/controller.polarArea.tests.js
+END
+core.helpers.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/core.helpers.tests.js
+END
+controller.radar.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/controller.radar.tests.js
+END
+controller.doughnut.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/controller.doughnut.tests.js
+END
+mockContext.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/mockContext.js
+END
+scale.time.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/scale.time.tests.js
+END
+core.element.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/core.element.tests.js
+END
+scale.linear.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/scale.linear.tests.js
+END
+core.title.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/core.title.tests.js
+END
+scale.radialLinear.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/scale.radialLinear.tests.js
+END
+controller.line.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/controller.line.tests.js
+END
+element.line.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/test/element.line.tests.js
+END

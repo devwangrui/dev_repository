@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zhengai.dao.YzChartSearchDao" >
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzChartSearch" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="reas" type="com.example.zhengai.model.YzChartSearch"  extends="BaseResultMap">
+  <collection property="child" ofType="com.example.zhengai.model.YzChartSearchS">
+    <id column="s_id" property="sId" jdbcType="INTEGER" />
+    <id column="value" property="value" jdbcType="INTEGER" />
+    <result column="title1" property="title" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yz_chart_search
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yz_chart_search
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzChartSearch" >
+    insert into yz_chart_search (id, title, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzChartSearch" >
+    insert into yz_chart_search
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzChartSearch" >
+    update yz_chart_search
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzChartSearch" >
+    update yz_chart_search
+    set title = #{title,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAllChart" resultMap="reas" >
+  	select a.s_id,a.`value`,a.title as title1,b.* from yz_chart_search_s as a RIGHT JOIN yz_chart_search as b ON b.id=a.s_id ORDER BY b.id ASC, a.`value` ASC;
+  </select>
+  <select id="selectAllSearch" resultMap="BaseResultMap" >
+  SELECT * FROM zhengai.yz_chart_search ORDER BY id ASC;
+  </select>
+</mapper>

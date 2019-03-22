@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zhengai.dao.YzTargetSortDao" >
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzTargetSort" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="rank" property="rank" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="update_sort" property="updateSort" jdbcType="INTEGER" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="VARCHAR" />
+    <result column="add_uid" property="addUid" jdbcType="INTEGER" />
+    <result column="edit_time" property="editTime" jdbcType="VARCHAR" />
+    <result column="edit_uid" property="editUid" jdbcType="INTEGER" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+    <result column="del_time" property="delTime" jdbcType="VARCHAR" />
+    <result column="del_uid" property="delUid" jdbcType="INTEGER" />
+    
+  </resultMap>
+  
+  <resultMap type="com.example.zhengai.model.YzTargetSort" id="listResultMapJoin" extends="BaseResultMap">
+    <collection property="list" ofType="com.example.zhengai.query.TargerSortQuery"> 
+	  <id column="二级ID" property="id" jdbcType="INTEGER" />
+	  <result column="ti" property="title" jdbcType="VARCHAR" />
+	  <result column="ra" property="rank" jdbcType="INTEGER" />
+	  <result column="br" property="remark" jdbcType="VARCHAR" />
+	  <result column="pi" property="pid" jdbcType="INTEGER" />
+	  <result column="bu" property="updateSort" jdbcType="INTEGER" />
+	  <result column="bs" property="sort" jdbcType="INTEGER" />
+	  <result column="bat" property="addTime" jdbcType="VARCHAR" />
+	  <result column="bau" property="addUid" jdbcType="INTEGER" />
+	  <result column="bet" property="editTime" jdbcType="VARCHAR" />
+	  <result column="beu" property="editUid" jdbcType="INTEGER" />
+	  <result column="bid" property="isDel" jdbcType="INTEGER" />
+	  <result column="bdt" property="delTime" jdbcType="VARCHAR" />
+	  <result column="bdu" property="delUid" jdbcType="INTEGER" />
+	  
+	     <collection property="list" ofType="com.example.zhengai.model.YzTarget">
+	    <id column="kid" property="id" jdbcType="INTEGER" />
+	   <result column="ktitle" property="title" jdbcType="VARCHAR" />
+	   <result column="krank" property="rank" jdbcType="INTEGER" />
+	   <result column="ko" property="sOne" jdbcType="INTEGER" />
+	   <result column="kt" property="sTwo" jdbcType="INTEGER" />
+	   <result column="ks" property="stand" jdbcType="VARCHAR" />
+	   <result column="kss" property="standSort" jdbcType="INTEGER" />
+	   <result column="ksss" property="standSortS" jdbcType="INTEGER" />
+	   <result column="kdt" property="dataTitle" jdbcType="VARCHAR" />
+	   <result column="kdi" property="dataId" jdbcType="INTEGER" />
+	   <result column="ksort" property="sort" jdbcType="INTEGER" />
+	   <result column="kus" property="updateSort" jdbcType="INTEGER" />
+	   <result column="kr" property="remark" jdbcType="VARCHAR" />
+	   <result column="kat" property="addTime" jdbcType="VARCHAR" />
+	   <result column="kau" property="addUid" jdbcType="INTEGER" />
+	   <result column="kide" property="editTime" jdbcType="VARCHAR" />
+	   <result column="kdet" property="editUid" jdbcType="INTEGER" />
+	   <result column="kide" property="isDel" jdbcType="INTEGER" />
+	   <result column="kdet" property="delTime" jdbcType="VARCHAR" />
+	   <result column="kdd" property="delUid" jdbcType="INTEGER" />
+	      <association property="yzDatas" javaType="com.example.zhengai.model.YzDatas" >
+          <id column="fid" jdbcType="INTEGER" property="id" />
+          <result column="ftitle" jdbcType="VARCHAR" property="title" />
+          <result column="fsort" jdbcType="INTEGER" property="sort" />
+          <result column="ftable" jdbcType="VARCHAR" property="table" />
+     
+     </association>
+	      
+         </collection>
+	  
+   </collection> 
+	
+</resultMap>
+
+ <resultMap type="com.example.zhengai.model.YzTargetSort" id="allJoin" extends="BaseResultMap">
+     <collection property="list" ofType="com.example.zhengai.query.TargerSortQuery"> 
+	  <id column="二级ID" property="id" jdbcType="INTEGER" />
+	  <result column="ti" property="title" jdbcType="VARCHAR" />
+	  <result column="ra" property="rank" jdbcType="INTEGER" />
+	  <result column="br" property="remark" jdbcType="VARCHAR" />
+	  <result column="pi" property="pid" jdbcType="INTEGER" />
+	  <result column="bu" property="updateSort" jdbcType="INTEGER" />
+	  <result column="bs" property="sort" jdbcType="INTEGER" />
+	  <result column="bat" property="addTime" jdbcType="VARCHAR" />
+	  <result column="bau" property="addUid" jdbcType="INTEGER" />
+	  <result column="bet" property="editTime" jdbcType="VARCHAR" />
+	  <result column="beu" property="editUid" jdbcType="INTEGER" />
+	  <result column="bid" property="isDel" jdbcType="INTEGER" />
+	  <result column="bdt" property="delTime" jdbcType="VARCHAR" />
+	  <result column="bdu" property="delUid" jdbcType="INTEGER" />
+	  
+	   <collection property="list" ofType="com.example.zhengai.model.YzTarget">
+	    <id column="kid" property="id" jdbcType="INTEGER" />
+	   <result column="ktitle" property="title" jdbcType="VARCHAR" />
+	   <result column="krank" property="rank" jdbcType="INTEGER" />
+	   <result column="ko" property="sOne" jdbcType="INTEGER" />
+	   <result column="kt" property="sTwo" jdbcType="INTEGER" />
+	   <result column="ks" property="stand" jdbcType="VARCHAR" />
+	   <result column="kss" property="standSort" jdbcType="INTEGER" />
+	   <result column="ksss" property="standSortS" jdbcType="INTEGER" />
+	   <result column="kdt" property="dataTitle" jdbcType="VARCHAR" />
+	   <result column="kdi" property="dataId" jdbcType="INTEGER" />
+	   <result column="ksort" property="sort" jdbcType="INTEGER" />
+	   <result column="kus" property="updateSort" jdbcType="INTEGER" />
+	   <result column="kr" property="remark" jdbcType="VARCHAR" />
+	   <result column="kat" property="addTime" jdbcType="VARCHAR" />
+	   <result column="kau" property="addUid" jdbcType="INTEGER" />
+	   <result column="kide" property="editTime" jdbcType="VARCHAR" />
+	   <result column="kdet" property="editUid" jdbcType="INTEGER" />
+	   <result column="kide" property="isDel" jdbcType="INTEGER" />
+	   <result column="kdet" property="delTime" jdbcType="VARCHAR" />
+	   <result column="kdd" property="delUid" jdbcType="INTEGER" />
+      </collection>
+   </collection> 
+ </resultMap>
+
+ <resultMap type="com.example.zhengai.model.YzTargetSort" extends="allJoin" id="Ba"  >
+ <collection property="view" ofType="com.example.zhengai.model.YzTargetView">
+    <id column="id1" property="id" jdbcType="INTEGER" />
+    <result column="title1" property="title" jdbcType="VARCHAR" />
+    <result column="sort1" property="sort" jdbcType="INTEGER" />
+    <result column="is_show1" property="isShow" jdbcType="INTEGER" />
+    <result column="e_id1" property="eId" jdbcType="INTEGER" />
+    <result column="add_time1" property="addTime" jdbcType="VARCHAR" />
+    <result column="add_uid1" property="addUid" jdbcType="INTEGER" />
+    <result column="edit_time1" property="editTime" jdbcType="VARCHAR" />
+    <result column="edit_uid1" property="editUid" jdbcType="INTEGER" />
+    <result column="is_del1" property="isDel" jdbcType="INTEGER" />
+    <result column="del_time1" property="delTime" jdbcType="VARCHAR" />
+    <result column="del_uid1" property="delUid" jdbcType="INTEGER" />
+    </collection>
+  </resultMap>
+  <resultMap type="com.example.zhengai.model.YzTargetSort" id="alln" extends="Ba"  >
+  <collection property="gl" ofType="com.example.zhengai.model.YzTargetViewGlKey" >
+    <id column="v_id" property="vId" jdbcType="INTEGER" />
+    <id column="t_id" property="tId" jdbcType="INTEGER" />
+  </collection>
+  </resultMap>
+ <resultMap type="com.example.zhengai.query.TargerSortQuery" id="selectTwoLevelRM">
+	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="title" property="title" jdbcType="VARCHAR" />
+	<result column="rank" property="rank" jdbcType="INTEGER" />
+	<result column="remark" property="remark" jdbcType="VARCHAR" />
+	<result column="pid" property="pid" jdbcType="INTEGER" />
+	<result column="update_sort" property="updateSort" jdbcType="INTEGER" />
+	<result column="sort" property="sort" jdbcType="INTEGER" />
+	<result column="add_time" property="addTime" jdbcType="VARCHAR" />
+	<result column="add_uid" property="addUid" jdbcType="INTEGER" />
+	<result column="edit_time" property="editTime" jdbcType="VARCHAR" />
+	<result column="edit_uid" property="editUid" jdbcType="INTEGER" />
+	<result column="is_del" property="isDel" jdbcType="INTEGER" />
+	<result column="del_time" property="delTime" jdbcType="VARCHAR" />
+	<result column="del_uid" property="delUid" jdbcType="INTEGER" />
+
+	<collection property="list" ofType="com.example.zhengai.model.YzTarget">
+		<id column="kid" property="id" jdbcType="INTEGER" />
+		<result column="ktitle" property="title" jdbcType="VARCHAR" />
+		<result column="krank" property="rank" jdbcType="INTEGER" />
+		<result column="ko" property="sOne" jdbcType="INTEGER" />
+		<result column="kt" property="sTwo" jdbcType="INTEGER" />
+		<result column="ks" property="stand" jdbcType="VARCHAR" />
+		<result column="kss" property="standSort" jdbcType="INTEGER" />
+		<result column="ksss" property="standSortS" jdbcType="INTEGER" />
+		<result column="kdt" property="dataTitle" jdbcType="VARCHAR" />
+		<result column="kdi" property="dataId" jdbcType="INTEGER" />
+		<result column="ksort" property="sort" jdbcType="INTEGER" />
+		<result column="kus" property="updateSort" jdbcType="INTEGER" />
+		<result column="kr" property="remark" jdbcType="VARCHAR" />
+		<result column="kat" property="addTime" jdbcType="VARCHAR" />
+		<result column="kau" property="addUid" jdbcType="INTEGER" />
+		<result column="kide" property="editTime" jdbcType="VARCHAR" />
+		<result column="kdet" property="editUid" jdbcType="INTEGER" />
+		<result column="kide" property="isDel" jdbcType="INTEGER" />
+		<result column="kdet" property="delTime" jdbcType="VARCHAR" />
+		<result column="kdd" property="delUid" jdbcType="INTEGER" />
+	</collection>
+
+</resultMap>
+
+<resultMap type="com.example.zhengai.model.YzTargetSort" id="listResultMapJoinRM" extends="BaseResultMap">
+        <collection property="list" ofType="com.example.zhengai.query.TargerSortQuery"> 
+	  <id column="二级ID" property="id" jdbcType="INTEGER" />
+	  <result column="ti" property="title" jdbcType="VARCHAR" />
+	  <result column="ra" property="rank" jdbcType="INTEGER" />
+	  <result column="br" property="remark" jdbcType="VARCHAR" />
+	  <result column="pi" property="pid" jdbcType="INTEGER" />
+	  <result column="bu" property="updateSort" jdbcType="INTEGER" />
+	  <result column="bs" property="sort" jdbcType="INTEGER" />
+	  <result column="bat" property="addTime" jdbcType="VARCHAR" />
+	  <result column="bau" property="addUid" jdbcType="INTEGER" />
+	  <result column="bet" property="editTime" jdbcType="VARCHAR" />
+	  <result column="beu" property="editUid" jdbcType="INTEGER" />
+	  <result column="bid" property="isDel" jdbcType="INTEGER" />
+	  <result column="bdt" property="delTime" jdbcType="VARCHAR" />
+	  <result column="bdu" property="delUid" jdbcType="INTEGER" />
+       </collection>
+
+</resultMap>
+	
+	
+  
+  <sql id="Base_Column_List" >
+    id, title, `rank`, remark, pid, update_sort, sort, add_time, add_uid, edit_time, edit_uid, 
+    is_del, del_time, del_uid
+  </sql>
+  
+  
+  <!-- ================================== -->
+  
+  <select id="selectLevels" parameterType="java.lang.Integer" resultMap="allJoin">
+      SELECT h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd
+FROM (select t.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+ from (select t.* from yz_target_sort T WHERE T.PID = 0 AND t.is_del != 1 AND t.sort = #{sort} ) t , yz_target_sort b
+where t.id =  b.pid  AND b.is_del != 1) h LEFT JOIN 
+ yz_target k ON k.s_one = h.id AND K.s_two = H.`二级ID` 
+      
+  </select>
+
+  <select id="selectJoinElement1" parameterType="java.util.Map" resultMap="allJoin">
+     SELECT c.* FROM yz_element a, yz_element_targetsort b, (SELECT h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd
+FROM (select t.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+ from (select t.* from yz_target_sort T WHERE T.PID = 0 AND t.is_del != 1 AND t.sort = #{sort}) t , yz_target_sort b
+where t.id =  b.pid  AND b.is_del != 1) h LEFT JOIN 
+ yz_target k ON k.s_one = h.id AND K.s_two = H.`二级ID` ) c WHERE a.id = b.element_id AND c.id  = b.targetsort_id AND a.id = #{id}
+  
+  
+  </select>
+  
+  <select id="selectJoinElement" parameterType="java.util.Map" resultMap="allJoin">
+  select a.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+	b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu,c.id kid,c.title ktitle,c.rank krank,c.s_one ko,c.s_two kt,c.stand ks,c.stand_sort kss,c.stand_sort_s ksss,c.data_title kdt,
+	c.data_id kdi,c.sort ksort,c.update_sort kus,c.remark kr,c.add_time kat,c.add_uid kau,c.is_del kide,c.del_time kdet,c.del_uid kdd from yz_target_sort as a ,yz_target_sort as b,yz_target AS c,yz_element as d,yz_element_targetsort as f where a.pid=0 and a.id=c.s_one and b.id=c.s_two and c.id=f.targetsort_id and d.id=f.element_id
+and d.id=#{id,jdbcType=INTEGER} and a.sort=#{sort,jdbcType=INTEGER} order by a.id
+  
+  </select>
+  
+  <select id="selectallOne" parameterType="java.lang.Integer" resultMap="allJoin">
+  
+    SELECT h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd
+FROM (select t.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+ from (select t.* from yz_target_sort T WHERE T.PID = 0 AND t.is_del != 1 AND t.id = ${id}) t , yz_target_sort b
+where t.id =  b.pid  AND b.is_del != 1) h LEFT JOIN 
+ yz_target k ON k.s_one = h.id AND K.s_two = H.`二级ID` 
+  </select>
+  
+  <select id="selectTwoLevel" parameterType="java.lang.Integer" resultMap="selectTwoLevelRM">
+  
+     SELECT a.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd  from yz_target_sort a,yz_target k WHERE a.id= k.s_two AND a.id = #{id}
+  
+  </select>
+  
+  <!-- ================================== -->
+   <select id="selectAllJoin" resultMap="listResultMapJoin" parameterType="java.util.Map" >
+     SELECT h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd,
+f.id  fid,f.title ftitle,f.sort fsort,f.`table` ftable FROM (select t.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+ from (select t.* from yz_target_sort T WHERE T.PID = 0 AND t.is_del != 1 AND t.sort = #{sort}  AND t.id = #{id,jdbcType=INTEGER}  ) t , yz_target_sort b
+where t.id =  b.pid  AND b.is_del != 1) h LEFT JOIN 
+ yz_target k ON k.is_del = 0 AND k.s_one = h.id AND K.s_two = H.`二级ID` LEFT JOIN centraldatabase.yz_datas f ON k.data_id = f.id 
+   </select>
+
+   
+   <select id="selectAllJoin1" resultMap="listResultMapJoin" parameterType="java.util.Map" >
+   SELECT h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd,
+f.id  fid,f.title ftitle,f.sort fsort,f.`table` ftable FROM (select t.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+ from (select t.* from yz_target_sort T WHERE T.PID = 0 AND t.is_del = 0 AND id =#{id}) t LEFT JOIN yz_target_sort b
+on  t.id =  b.pid  AND b.is_del != 1) h , centraldatabase.yz_datas f,
+ yz_target k WHERE k.is_del = 0 AND k.s_one = h.id AND K.s_two = H.`二级ID` and k.data_id = f.id  
+   </select>
+   
+   <select id="selectAllJoinAll" parameterType="java.lang.Integer" resultMap="listResultMapJoin"  >
+      SELECT h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd,
+f.id  fid,f.title ftitle,f.sort fsort,f.`table` ftable FROM (select t.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+ from (select t.* from yz_target_sort T WHERE T.PID = 0 AND t.is_del = 0  ) t , yz_target_sort b
+where t.id =  b.pid  AND b.is_del != 1) h LEFT JOIN 
+ yz_target k ON k.is_del = 0 AND k.s_one = h.id AND K.s_two = H.`二级ID` LEFT JOIN centraldatabase.yz_datas f ON k.data_id = f.id  
+   </select>
+  
+    <!-- ================================== -->
+    <!-- SELECT a.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu FROM yz_target_sort a , yz_target_sort b WHERE a.id = b.pid -->
+    <!-- ================================== -->
+    
+   <select id="selectTargetViewJoinN1" parameterType="java.lang.Integer" resultMap="allJoin">
+     SELECT b.*
+from (SELECT * FROM yz_target_view WHERE id =#{id} AND is_del = 0 )a, (SELECT  h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd
+FROM (select  t.* ,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+ from (select x.* from yz_target_sort x WHERE x.PID = 0 AND x.is_del != 1  ) t , yz_target_sort b
+where t.id =  b.pid  AND b.is_del != 1) h LEFT JOIN 
+ yz_target k ON k.s_one = h.id AND K.s_two = H.`二级ID` ) b ,yz_target_view_gl c WHERE a.id = c.v_id AND b.id = c.t_id
+  
+  </select>
+  
+  <select id="selectTargetViewJoinN" parameterType="java.util.Map" resultMap="alln">
+   select a.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+	b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu,c.id kid,c.title ktitle,c.rank krank,c.s_one ko,c.s_two kt,c.stand ks,c.stand_sort kss,c.stand_sort_s ksss,c.data_title kdt,
+	c.data_id kdi,c.sort ksort,c.update_sort kus,c.remark kr,c.add_time kat,c.add_uid kau,c.is_del kide,c.del_time kdet,c.del_uid kdd,d.id id1, d.title title1, d.sort sort1,d.is_show is_show1, d.e_id e_id1, d.add_time add_time1, d.add_uid add_uid1,d.edit_time edit_time1,d.edit_uid edit_uid1,d.is_del is_del1,d.del_time del_time1, 
+    d.del_uid del_uid1,f.*
+   from yz_target_sort as a ,yz_target_sort as b,yz_target AS c,`yz_target_view` as d,`yz_target_view_gl` as f 
+   where a.pid=0 and a.id=c.s_one and b.id=c.s_two and c.id=f.t_id and d.id=f.v_id and d.id=#{id,jdbcType=INTEGER} and a.sort=#{sort,jdbcType=INTEGER} order by a.id;
+  </select>
+  
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yz_target_sort
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByPid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+       select * from yz_target_sort where pid = #{pid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByLevel3" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT a.* from yz_target_sort a,yz_target b WHERE  b.s_two = a.id AND b.id = #{id}
+  
+  </select>
+  
+  
+  <select id="selectByLevel3N" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT a.* from yz_target_sort a,yz_target b WHERE  b.s_one  = a.id AND b.id =  #{id}
+  
+  </select>
+  
+  <select id="selecetTetle" resultType="java.lang.String" >
+   select distinct t.title from YZ_TARGET_SORT T 
+  </select>
+  
+  <delete id="deleteTargetByID" parameterType="java.lang.Integer" >
+    delete from yz_target_sort
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+   
+  
+  <delete id="deleteByPId" parameterType="java.lang.Integer">
+    delete from yz_target_sort
+    where id = #{pid,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="savaYzTargetSort" parameterType="com.example.zhengai.model.YzTargetSort" >
+     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      select LAST_INSERT_ID()
+     </selectKey>
+    insert into yz_target_sort (id, title, `rank`, 
+      remark, pid, update_sort, 
+      sort, add_time, add_uid, 
+      edit_time, edit_uid, is_del, 
+      del_time, del_uid)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{rank,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, #{updateSort,jdbcType=INTEGER}, 
+      #{sort,jdbcType=INTEGER}, #{addTime,jdbcType=VARCHAR}, #{addUid,jdbcType=INTEGER}, 
+      #{editTime,jdbcType=VARCHAR}, #{editUid,jdbcType=INTEGER}, #{isDel,jdbcType=INTEGER}, 
+      #{delTime,jdbcType=VARCHAR}, #{delUid,jdbcType=INTEGER})
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzTargetSort" >
+
+    insert into yz_target_sort
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="rank != null" >
+        `rank`,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="updateSort != null" >
+        update_sort,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="addUid != null" >
+        add_uid,
+      </if>
+      <if test="editTime != null" >
+        edit_time,
+      </if>
+      <if test="editUid != null" >
+        edit_uid,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="delTime != null" >
+        del_time,
+      </if>
+      <if test="delUid != null" >
+        del_uid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null" >
+        #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="updateSort != null" >
+        #{updateSort,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="addUid != null" >
+        #{addUid,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="editUid != null" >
+        #{editUid,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null" >
+        #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delUid != null" >
+        #{delUid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateTarget" parameterType="com.example.zhengai.model.YzTargetSort" >
+    update yz_target_sort
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null" >
+        `rank` = #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="updateSort != null" >
+        update_sort = #{updateSort,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="addUid != null" >
+        add_uid = #{addUid,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null" >
+        edit_time = #{editTime,jdbcType=VARCHAR},
+      </if>
+      <if test="editUid != null" >
+        edit_uid = #{editUid,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null" >
+        del_time = #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delUid != null" >
+        del_uid = #{delUid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzTargetSort" >
+    update yz_target_sort
+    set title = #{title,jdbcType=VARCHAR},
+      `rank` = #{rank,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER},
+      update_sort = #{updateSort,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=VARCHAR},
+      add_uid = #{addUid,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=VARCHAR},
+      edit_uid = #{editUid,jdbcType=INTEGER},
+      is_del = #{isDel,jdbcType=INTEGER},
+      del_time = #{delTime,jdbcType=VARCHAR},
+      del_uid = #{delUid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+    
+  </update>
+  
+ <!-- 查询 出所有未被删除的一级指标-->
+	<select id="selectAllPY" parameterType="java.lang.Integer" resultMap="listResultMapJoinRM">
+	  SELECT a.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu FROM (SELECT * FROM yz_target_sort q WHERE q.pid =0 AND q.is_del !=1 AND q.sort= #{sort}) a LEFT JOIN (SELECT * FROM yz_target_sort w WHERE w.is_del != 1 ) b ON a.id = b.pid   
+	</select>
+	
+ <!-- 查询 出所有未被删除的一级指标-->
+ 
+ <!--  SELECT a.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu FROM (SELECT * FROM yz_target_sort q WHERE q.pid =0 AND q.is_del !=1 ) a LEFT JOIN (SELECT * FROM yz_target_sort w WHERE w.is_del != 1 ) b ON a.id = b.pid -->
+	<select id="selectAllPY1" resultMap="listResultMapJoinRM">
+	   SELECT a.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu FROM (SELECT * FROM yz_target_sort q WHERE q.pid =0 AND q.is_del !=1 ) a LEFT JOIN (SELECT * FROM yz_target_sort w WHERE w.is_del != 1 ) b ON a.id = b.pid
+	</select>
+		<select id="selectAllPY2" resultMap="listResultMapJoin" parameterType="java.lang.Integer">
+	SELECT a.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd FROM   zhengai.yz_target_sort  as a,zhengai.yz_target_sort AS B,yz_target AS k WHERE A.pid=0 and A.is_del=0 AND a.id=b.pid  And k.s_two=b.id AND k.s_one=a.id AND a.sort=#{sort} order by a.id,b.id,k.id;
+	</select>
+	
+	<resultMap type="com.example.zhengai.model.YzTargetSort" id="resultMapJoin"	extends="BaseResultMap">
+	<collection property="YzTargetList" ofType="com.example.zhengai.model.YzTarget">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="rank" property="rank" jdbcType="INTEGER" />
+		<result column="s_one" property="sOne" jdbcType="INTEGER" />
+		<result column="s_two" property="sTwo" jdbcType="INTEGER" />
+		<result column="stand" property="stand" jdbcType="VARCHAR" />
+		<result column="stand_sort" property="standSort" jdbcType="INTEGER" />
+		<result column="stand_sort_s" property="standSortS" jdbcType="INTEGER" />
+		<result column="data_title" property="dataTitle" jdbcType="VARCHAR" />
+		<result column="data_id" property="dataId" jdbcType="INTEGER" />
+		<result column="sort" property="sort" jdbcType="INTEGER" />
+		<result column="update_sort" property="updateSort" jdbcType="INTEGER" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="add_time" property="addTime" jdbcType="VARCHAR" />
+		<result column="add_uid" property="addUid" jdbcType="INTEGER" />
+		<result column="edit_time" property="editTime" jdbcType="VARCHAR" />
+		<result column="edit_uid" property="editUid" jdbcType="INTEGER" />
+		<result column="is_del" property="isDel" jdbcType="INTEGER" />
+		<result column="del_time" property="delTime" jdbcType="VARCHAR" />
+		<result column="del_uid" property="delUid" jdbcType="INTEGER" />
+
+	</collection>
+
+</resultMap>
+	
+	<select  id="selectBysOne" resultMap="resultMapJoin" parameterType="java.lang.Integer" >
+	    select * FROM yz_target_sort B , yz_target t where b.id = t.s_one and b.id  = #{id}
+	     
+	</select>
+	
+  <!-- <select id="selectLevelOneAndLevelTwo" parameterType="java.lang.Integer" resultMap="listResultMapJoinRM">
+      
+      SELECT a.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu FROM (SELECT * FROM yz_target_sort WHERE pid = 0 AND is_del =0 AND sort = #{sort}) a LEFT JOIN yz_target_sort b ON a. id = b.pid
+  
+  </select> -->
+  
+  <!-- 根据一级指标的ID查询出所有与该一级指标对应的二级指标 -->
+	<select id="selectChildren" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+	   select b.* from (select * from yz_target_sort T WHERE T.PID = 0 AND t.is_del != 1 and t.sort = 1) t , yz_target_sort b
+    where t.id =  b.pid  AND b.is_del != 1 and t.id = #{id}
+	   
+	</select >
+	
+	<select id="selectThree" resultMap="allJoin">
+	   SELECT  h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd from (SELECT a.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+FROM (SELECT * FROM yz_target_sort WHERE pid = 0 and is_del = 0) a,yz_target_sort b WHERE a.id= b.pid) h,yz_target k WHERE h.id = k.s_one
+	
+	</select>
+	
+	
+	<select id="selectPTitle"  resultType="java.lang.String">
+	
+	 select DISTINCT title from yz_target_sort where pid = 0
+	</select>
+	
+	<select id="selectCTitel"  resultType="java.lang.String">
+	
+	 select DISTINCT title from yz_target_sort where pid != 0
+	</select>
+	
+	<!--查询出所有一级指标的title和id 的sql  -->
+	<select id="selectTitleAndIdP" parameterType="java.lang.Integer" resultType="com.example.zhengai.query.YzTargetSortTitleAndId">
+	   select DISTINCT title,id from yz_target_sort where pid = 0 and is_del != 1 AND sort = #{sort} 
+	</select>
+	
+	<!--查询出所有二级指标的title和id 的sql  -->
+	<select id="selectTitleAndIdCh" resultType="com.example.zhengai.query.YzTargetSortTitleAndId">
+	   select DISTINCT title,id from yz_target_sort where pid != 0 AND is_del!=1 AND sort = #{sort} 
+	</select>
+	
+	<select id="selectTitleAndIdLevelTwo" parameterType="java.lang.Integer" resultType="com.example.zhengai.query.YzTargetSortTitleAndId">
+	   select DISTINCT b.title,b.id from yz_target_sort a, yz_target_sort b WHERE a.id = b.pid AND a.id=#{id}
+	</select>
+
+
+    <resultMap id="homePageResultMap" type="com.example.zhengai.model.YzTargetSort" extends="BaseResultMap">
+        <collection property="list" ofType="com.example.zhengai.query.TargerSortQuery">
+        <id column="二级ID" property="id" jdbcType="INTEGER" />
+        <result column="ti" property="title" jdbcType="VARCHAR" />
+        <result column="ra" property="rank" jdbcType="INTEGER" />
+        <result column="br" property="remark" jdbcType="VARCHAR" />
+        <result column="pi" property="pid" jdbcType="INTEGER" />
+        <result column="bu" property="updateSort" jdbcType="INTEGER" />
+        <result column="bs" property="sort" jdbcType="INTEGER" />
+        <result column="bat" property="addTime" jdbcType="VARCHAR" />
+        <result column="bau" property="addUid" jdbcType="INTEGER" />
+        <result column="bet" property="editTime" jdbcType="VARCHAR" />
+        <result column="beu" property="editUid" jdbcType="INTEGER" />
+        <result column="bid" property="isDel" jdbcType="INTEGER" />
+        <result column="bdt" property="delTime" jdbcType="VARCHAR" />
+        <result column="bdu" property="delUid" jdbcType="INTEGER" />
+
+        <collection property="list" ofType="com.example.zhengai.model.YzTarget">
+        <id column="kid" property="id" jdbcType="INTEGER" />
+        <result column="ktitle" property="title" jdbcType="VARCHAR" />
+        <result column="krank" property="rank" jdbcType="INTEGER" />
+        <result column="ko" property="sOne" jdbcType="INTEGER" />
+        <result column="kt" property="sTwo" jdbcType="INTEGER" />
+        <result column="ks" property="stand" jdbcType="VARCHAR" />
+        <result column="kss" property="standSort" jdbcType="INTEGER" />
+        <result column="ksss" property="standSortS" jdbcType="INTEGER" />
+        <result column="kdt" property="dataTitle" jdbcType="VARCHAR" />
+        <result column="kdi" property="dataId" jdbcType="INTEGER" />
+        <result column="ksort" property="sort" jdbcType="INTEGER" />
+        <result column="kus" property="updateSort" jdbcType="INTEGER" />
+        <result column="kr" property="remark" jdbcType="VARCHAR" />
+        <result column="kat" property="addTime" jdbcType="VARCHAR" />
+        <result column="kau" property="addUid" jdbcType="INTEGER" />
+        <result column="kide" property="editTime" jdbcType="VARCHAR" />
+        <result column="kdet" property="editUid" jdbcType="INTEGER" />
+        <result column="kide" property="isDel" jdbcType="INTEGER" />
+        <result column="kdet" property="delTime" jdbcType="VARCHAR" />
+        <result column="kdd" property="delUid" jdbcType="INTEGER" />
+            <association property="yzHomepageStyle" javaType="com.example.zhengai.model.YzHomepageStyle">
+                <id column="style_id" jdbcType="INTEGER" property="styleId" />
+                <result column="x" jdbcType="INTEGER" property="x" />
+                <result column="y" jdbcType="INTEGER" property="y" />
+                <result column="w" jdbcType="INTEGER" property="w" />
+                <result column="h" jdbcType="INTEGER" property="h" />
+                <result column="user_id" jdbcType="INTEGER" property="userId" />
+                <result column="targ_id" jdbcType="INTEGER" property="targId" />
+                <result column="chart_id" jdbcType="INTEGER" property="chartId" />
+            </association>
+            <collection property="yzDatasValueList" ofType="com.example.zhengai.model.YzDatasValue">
+                <id column="data_target_id" jdbcType="INTEGER" property="dataTargetId" />
+                <result column="data_title" jdbcType="VARCHAR" property="dataTitle" />
+                <result column="target_id" jdbcType="INTEGER" property="targetId" />
+                <result column="data_value" jdbcType="INTEGER" property="dataValue" />
+            </collection>
+
+        </collection>
+    </collection>
+    </resultMap>
+
+
+
+
+
+    <resultMap id="myHomePageResultMap" type="com.example.zhengai.model.YzTargetSort" extends="BaseResultMap">
+        <collection property="list" ofType="com.example.zhengai.query.TargerSortQuery">
+            <id column="二级ID" property="id" jdbcType="INTEGER" />
+            <result column="ti" property="title" jdbcType="VARCHAR" />
+            <result column="ra" property="rank" jdbcType="INTEGER" />
+            <result column="br" property="remark" jdbcType="VARCHAR" />
+            <result column="pi" property="pid" jdbcType="INTEGER" />
+            <result column="bu" property="updateSort" jdbcType="INTEGER" />
+            <result column="bs" property="sort" jdbcType="INTEGER" />
+            <result column="bat" property="addTime" jdbcType="VARCHAR" />
+            <result column="bau" property="addUid" jdbcType="INTEGER" />
+            <result column="bet" property="editTime" jdbcType="VARCHAR" />
+            <result column="beu" property="editUid" jdbcType="INTEGER" />
+            <result column="bid" property="isDel" jdbcType="INTEGER" />
+            <result column="bdt" property="delTime" jdbcType="VARCHAR" />
+            <result column="bdu" property="delUid" jdbcType="INTEGER" />
+
+            <collection property="list" ofType="com.example.zhengai.model.YzTarget">
+                <id column="kid" property="id" jdbcType="INTEGER" />
+                <result column="ktitle" property="title" jdbcType="VARCHAR" />
+                <result column="krank" property="rank" jdbcType="INTEGER" />
+                <result column="ko" property="sOne" jdbcType="INTEGER" />
+                <result column="kt" property="sTwo" jdbcType="INTEGER" />
+                <result column="ks" property="stand" jdbcType="VARCHAR" />
+                <result column="kss" property="standSort" jdbcType="INTEGER" />
+                <result column="ksss" property="standSortS" jdbcType="INTEGER" />
+                <result column="kdt" property="dataTitle" jdbcType="VARCHAR" />
+                <result column="kdi" property="dataId" jdbcType="INTEGER" />
+                <result column="ksort" property="sort" jdbcType="INTEGER" />
+                <result column="kus" property="updateSort" jdbcType="INTEGER" />
+                <result column="kr" property="remark" jdbcType="VARCHAR" />
+                <result column="kat" property="addTime" jdbcType="VARCHAR" />
+                <result column="kau" property="addUid" jdbcType="INTEGER" />
+                <result column="kide" property="editTime" jdbcType="VARCHAR" />
+                <result column="kdet" property="editUid" jdbcType="INTEGER" />
+                <result column="kide" property="isDel" jdbcType="INTEGER" />
+                <result column="kdet" property="delTime" jdbcType="VARCHAR" />
+                <result column="kdd" property="delUid" jdbcType="INTEGER" />
+                <association property="yzDatas" javaType="com.example.zhengai.model.YzDatas">
+                    <id column="fid" jdbcType="INTEGER" property="id" />
+                    <result column="ftitle" jdbcType="VARCHAR" property="title" />
+                    <result column="fsort" jdbcType="INTEGER" property="sort" />
+                    <result column="ftable" jdbcType="VARCHAR" property="table" />
+
+                    <collection property="yzValues" javaType="com.example.zhengai.model.YzValues">
+                        <id column="value_id" jdbcType="INTEGER" property="valueId" />
+                        <result column="data_id" jdbcType="INTEGER" property="dataId" />
+                        <result column="xy_id" jdbcType="INTEGER" property="xyId" />
+                        <result column="num" jdbcType="REAL" property="num" />
+                        <result column="num1" jdbcType="REAL" property="num1" />
+                        <result column="mat" jdbcType="VARCHAR" property="addTime" />
+                        <result column="data_title" jdbcType="VARCHAR" property="dataTitle" />
+                    </collection>
+                </association>
+
+                <association property="yzHomepageStyle" javaType="com.example.zhengai.model.YzHomepageStyle">
+                    <id column="style_id" jdbcType="INTEGER" property="styleId" />
+                    <result column="x" jdbcType="INTEGER" property="x" />
+                    <result column="y" jdbcType="INTEGER" property="y" />
+                    <result column="w" jdbcType="INTEGER" property="w" />
+                    <result column="h" jdbcType="INTEGER" property="h" />
+                    <result column="user_id" jdbcType="INTEGER" property="userId" />
+                    <result column="targ_id" jdbcType="INTEGER" property="targId" />
+                    <result column="chart_id" jdbcType="INTEGER" property="chartId" />
+                </association>
+
+
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="selectMyHomePageDates" resultMap="myHomePageResultMap" >
+      SELECT * from (SELECT * FROM (SELECT h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd,
+f.id  fid,f.title ftitle,f.sort fsort,f.`table` ftable FROM (select t.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+ from (select t.* from yz_target_sort T WHERE T.PID = 0 AND t.is_del != 1  ) t , yz_target_sort b
+where t.id =  b.pid  AND b.is_del != 1) h LEFT JOIN
+ yz_target k ON k.is_del = 0 AND k.s_one = h.id AND K.s_two = H.`二级ID` LEFT JOIN centraldatabase.yz_datas f ON k.data_id = f.id) p ,(SELECT m.value_id  ,m.data_id, m.xy_id ,m.num,m.num1 ,m.add_time mat,m.data_title,n.id nid,n.title nt,n.sort ns,n.pid np FROM yz_values m , yz_dic n WHERE m.xy_id = n.id) v where p.fid = v.data_id) ak LEFT JOIN
+yz_homepage_style m ON ak.kid = m.targ_id
+
+    </select>
+
+
+    <select id="selectHomePageDates" resultMap="homePageResultMap">
+       SELECT * FROM (SELECT * from (SELECT t.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd FROM(SELECT a.*
+,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu from yz_target_sort a ,yz_target_sort b WHERE a.id = b.pid AND a.is_del =0) t,yz_target k WHERE t.id = k.s_one AND t.`二级ID`=k.s_two) x ,yz_datas_value f
+WHERE x.kid = f.target_id) m LEFT JOIN yz_homepage_style s ON m.kid = s.targ_id
+
+    </select>
+
+    <select id="selectHomePageDatesByTargetId" parameterType="java.lang.Integer" resultMap="myHomePageResultMap">
+      SELECT * FROM (SELECT * from (SELECT * FROM (SELECT h.*,k.id kid,k.title ktitle,k.rank krank,k.s_one ko,k.s_two kt,k.stand ks,k.stand_sort kss,k.stand_sort_s ksss,k.data_title kdt,
+k.data_id kdi,k.sort ksort,k.update_sort kus,k.remark kr,k.add_time kat,k.add_uid kau,k.is_del kide,k.del_time kdet,k.del_uid kdd,
+f.id  fid,f.title ftitle,f.sort fsort,f.`table` ftable FROM (select t.*,b.id AS '二级ID',b.title AS ti,b.rank AS ra,b.remark as br,b.pid as pi,
+b.update_sort as bu,b.sort AS bs,b.add_time as bat,b.add_uid as bau,b.edit_time as bet,b.edit_uid as beu,b.is_del as bid ,b.del_time as bdt,b.del_uid as bdu
+ from (select t.* from yz_target_sort T WHERE T.PID = 0 AND t.is_del != 1  ) t , yz_target_sort b
+where t.id =  b.pid  AND b.is_del != 1) h LEFT JOIN
+ yz_target k ON k.is_del = 0 AND k.s_one = h.id AND K.s_two = H.`二级ID` and k.id =#{targetId} LEFT JOIN centraldatabase.yz_datas f ON k.data_id = f.id) p ,(SELECT m.value_id  ,m.data_id, m.xy_id ,m.num,m.num1 ,m.add_time mat,m.data_title,n.id nid,n.title nt,n.sort ns,n.pid np FROM yz_values m , yz_dic n WHERE m.xy_id = n.id) v where p.fid = v.data_id) ak LEFT JOIN
+yz_homepage_style m ON ak.kid = m.targ_id) dt GROUP BY dt.xy_id
+
+    </select>
+	
+
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

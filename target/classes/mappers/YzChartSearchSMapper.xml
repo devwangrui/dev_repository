@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zhengai.dao.YzChartSearchSDao" >
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzChartSearchS" >
+    <id column="s_id" property="sId" jdbcType="INTEGER" />
+    <id column="value" property="value" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    s_id, `value`, title
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.example.zhengai.model.YzChartSearchSKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from yz_chart_search_s
+    where s_id = #{sId,jdbcType=INTEGER}
+      and `value` = #{value,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.zhengai.model.YzChartSearchSKey" >
+    delete from yz_chart_search_s
+    where s_id = #{sId,jdbcType=INTEGER}
+      and `value` = #{value,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzChartSearchS" >
+    insert into yz_chart_search_s (s_id, `value`, title
+      )
+    values (#{sId,jdbcType=INTEGER}, #{value,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzChartSearchS" >
+    insert into yz_chart_search_s
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        s_id,
+      </if>
+      <if test="value != null" >
+        `value`,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzChartSearchS" >
+    update yz_chart_search_s
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where s_id = #{sId,jdbcType=INTEGER}
+      and `value` = #{value,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzChartSearchS" >
+    update yz_chart_search_s
+    set title = #{title,jdbcType=VARCHAR}
+    where s_id = #{sId,jdbcType=INTEGER}
+      and `value` = #{value,jdbcType=INTEGER}
+  </update>
+</mapper>

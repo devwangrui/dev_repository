@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.YzZzyxssZyDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzZzyxssZy">
+    <result column="zy_id" jdbcType="INTEGER" property="zyId" />
+    <result column="nj" jdbcType="INTEGER" property="nj" />
+    <result column="add_time" jdbcType="INTEGER" property="addTime" />
+    <result column="xy_id" jdbcType="INTEGER" property="xyId" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="y" jdbcType="INTEGER" property="y" />
+    <result column="m" jdbcType="TINYINT" property="m" />
+    <result column="d" jdbcType="TINYINT" property="d" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    zy_id, nj, add_time, xy_id, num, y, m, d
+  </sql>
+
+
+  <insert id="insert" parameterType="com.example.zhengai.model.YzZzyxssZy">
+    insert into yz_zzyxss_zy (zy_id, nj, add_time, 
+      xy_id, num, y, m, 
+      d)
+    values (#{zyId,jdbcType=INTEGER}, #{nj,jdbcType=INTEGER}, #{addTime,jdbcType=INTEGER}, 
+      #{xyId,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, #{y,jdbcType=INTEGER}, #{m,jdbcType=TINYINT}, 
+      #{d,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzZzyxssZy">
+    insert into yz_zzyxss_zy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zyId != null">
+        zy_id,
+      </if>
+      <if test="nj != null">
+        nj,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="xyId != null">
+        xy_id,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="y != null">
+        y,
+      </if>
+      <if test="m != null">
+        m,
+      </if>
+      <if test="d != null">
+        d,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zyId != null">
+        #{zyId,jdbcType=INTEGER},
+      </if>
+      <if test="nj != null">
+        #{nj,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=INTEGER},
+      </if>
+      <if test="xyId != null">
+        #{xyId,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="y != null">
+        #{y,jdbcType=INTEGER},
+      </if>
+      <if test="m != null">
+        #{m,jdbcType=TINYINT},
+      </if>
+      <if test="d != null">
+        #{d,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzZzyxssZy">
+    update yz_zzyxss_zy
+    <set>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="y != null">
+        y = #{y,jdbcType=INTEGER},
+      </if>
+      <if test="m != null">
+        m = #{m,jdbcType=TINYINT},
+      </if>
+      <if test="d != null">
+        d = #{d,jdbcType=TINYINT},
+      </if>
+    </set>
+    where zy_id = #{zyId,jdbcType=INTEGER}
+      and nj = #{nj,jdbcType=INTEGER}
+      and add_time = #{addTime,jdbcType=INTEGER}
+      and xy_id = #{xyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzZzyxssZy">
+    update yz_zzyxss_zy
+    set num = #{num,jdbcType=INTEGER},
+      y = #{y,jdbcType=INTEGER},
+      m = #{m,jdbcType=TINYINT},
+      d = #{d,jdbcType=TINYINT}
+    where zy_id = #{zyId,jdbcType=INTEGER}
+      and nj = #{nj,jdbcType=INTEGER}
+      and add_time = #{addTime,jdbcType=INTEGER}
+      and xy_id = #{xyId,jdbcType=INTEGER}
+  </update>
+</mapper>

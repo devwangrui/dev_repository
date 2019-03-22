@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.YzDatasValueMapper">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzDatasValue">
+    <id column="data_target_id" jdbcType="INTEGER" property="dataTargetId" />
+    <result column="data_title" jdbcType="VARCHAR" property="dataTitle" />
+    <result column="target_id" jdbcType="INTEGER" property="targetId" />
+    <result column="data_value" jdbcType="INTEGER" property="dataValue" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    data_target_id, data_title, target_id, data_value
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yz_datas_value
+    where data_target_id = #{dataTargetId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from yz_datas_value
+    where data_target_id = #{dataTargetId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzDatasValue">
+    insert into yz_datas_value (data_target_id, data_title, target_id, 
+      data_value)
+    values (#{dataTargetId,jdbcType=INTEGER}, #{dataTitle,jdbcType=VARCHAR}, #{targetId,jdbcType=INTEGER}, 
+      #{dataValue,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzDatasValue">
+    insert into yz_datas_value
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dataTargetId != null">
+        data_target_id,
+      </if>
+      <if test="dataTitle != null">
+        data_title,
+      </if>
+      <if test="targetId != null">
+        target_id,
+      </if>
+      <if test="dataValue != null">
+        data_value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dataTargetId != null">
+        #{dataTargetId,jdbcType=INTEGER},
+      </if>
+      <if test="dataTitle != null">
+        #{dataTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="targetId != null">
+        #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="dataValue != null">
+        #{dataValue,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzDatasValue">
+    update yz_datas_value
+    <set>
+      <if test="dataTitle != null">
+        data_title = #{dataTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="targetId != null">
+        target_id = #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="dataValue != null">
+        data_value = #{dataValue,jdbcType=INTEGER},
+      </if>
+    </set>
+    where data_target_id = #{dataTargetId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzDatasValue">
+    update yz_datas_value
+    set data_title = #{dataTitle,jdbcType=VARCHAR},
+      target_id = #{targetId,jdbcType=INTEGER},
+      data_value = #{dataValue,jdbcType=INTEGER}
+    where data_target_id = #{dataTargetId,jdbcType=INTEGER}
+  </update>
+
+</mapper>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zhengai.dao.YzRoleDao" >
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzRole" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  
+   <resultMap type="com.example.zhengai.model.YzRole" id="selectUserByRoleIdRM" extends="BaseResultMap">
+     <collection property="userList" ofType="com.example.zhengai.model.YzUser">
+         <id column="uid" property="id" jdbcType="INTEGER" />
+         <result column="username" property="username" jdbcType="VARCHAR" />
+         <result column="uname" property="name" jdbcType="VARCHAR" />
+         <result column="sort" property="sort" jdbcType="INTEGER" />
+         <result column="bm_one" property="bmOne" jdbcType="INTEGER" />
+         <result column="bm_two" property="bmTwo" jdbcType="INTEGER" />
+         <result column="bm_three" property="bmThree" jdbcType="INTEGER" />
+         <result column="add_time" property="addTime" jdbcType="INTEGER" />
+         <result column="last_login" property="lastLogin" jdbcType="INTEGER" />
+         <result column="login_num" property="loginNum" jdbcType="INTEGER" />
+     </collection>
+     
+     
+  </resultMap> 
+  
+  <sql id="Base_Column_List" >
+    id, name, pid, status, remark
+  </sql>
+  
+  <select id="selectUserByRoleId" parameterType="java.lang.Integer" resultMap="selectUserByRoleIdRM">
+       SELECT r.*,u.id uid,u.`name` uname,u.username,u.sort,u.bm_one,u.bm_two,u.bm_three,u.add_time,u.last_login,u.login_num 
+     FROM yz_user u, yz_role r,yz_role_user ru WHERE u.id = ru.user_id AND ru.role_id = r.id AND r.id = #{id}
+  </select>
+  
+  <!--<select id="selectAllRoleJoinUser"  resultMap="selectRoleByUserIdRM">
+      SELECT r.*,u.id uid,u.`name` uname,u.username,u.sort,u.bm_one,u.bm_two,u.bm_three,u.add_time,u.last_login,u.login_num 
+     FROM yz_user u, yz_role r,yz_role_user ru WHERE u.id = ru.user_id AND ru.role_id = r.id 
+  </select>-->
+  
+  <select id="selectRoleById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+     select * from yz_role where id = #{id}
+  </select>
+  
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yz_role
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAllRole" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yz_role order by id ASC
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yz_role
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzRole" >
+    insert into yz_role (id, name, pid, 
+      status, remark)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzRole" >
+    insert into yz_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzRole" >
+    update yz_role
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzRole" >
+    update yz_role
+    set name = #{name,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

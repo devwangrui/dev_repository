@@ -1,0 +1,71 @@
+/* 课程列表 */
+#app,#pageBox{min-width: 1340px;max-width: 1803px;margin: 0 auto;}
+#content,#pageBox{padding: 0 20px;}
+.search_ipt{height: 40px;width: 300px;background-color: #1f232f;border-radius: 10px;margin: 10px 15px 0;}
+.search_ipt.search_ipt-small{width: 220px;}
+.search_ipt input{width: 280px;height: 20px;padding: 10px 13px;line-height: 20px;border-radius: 10px;position: relative;border: 0;outline: none;background-color: #1f232f;}
+.search_ipt.search_ipt-small input{width: 160px;}
+
+/* 竖向分布图 */
+.col-3{width:calc(~'25% - 20px');float: left;height: auto;min-height: 200px;margin: 10px 10px;text-align: center;}
+.col-4{width:calc(~'33.33% - 20px');float: left;height: auto;min-height: 200px;margin: 10px 10px;text-align: center;}
+.col-6{width:calc(~'50% - 20px');float: left;height: auto;min-height: 12.5rem;margin: 10px 10px;text-align: center;}
+.col-3 .classTitle, .col-4 .classTitle, .col-6 .classTitle{font-size: 18px;}
+.classBox{width: calc(~'100% - 20px');height: auto;padding-top: 10px;margin: 2.18rem 0;position: relative;}
+.codeBox{margin: 20px auto ;max-width: 100%;}
+.codeBox .codeCard{width: 1.68rem;height: 1.5rem;font-size: 0.6rem;line-height: 24px;position: relative;top: 3px;}
+.codeBox .codeNum{font-size: 18px;max-width: 220px;margin:0 5px;text-align: left;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.codeBox > .btn > .icon {font-size: 1.25rem;color: #fff;position: relative;top: 2px;}
+.infoBox{margin-bottom: 0.62rem;}
+.infoBox .info{width: 100px;height: 100%;min-height:2.5rem;border-right: 0.06rem solid #505979;max-width: 6.25rem;}
+.infoBox .info:nth-last-child(2){border-right: 0;}
+.infoBox .info .p1{font-size: 14px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.infoBox .info .p2{font-size: 10px;}
+.chartsBox{height: 0px;border-top: 0.07rem solid #1e263d;transition: height linear;}
+.btn{width: auto;height: auto;border-radius: 3px;text-align: center;font-size: 13px;padding: 2px 10px;cursor: pointer;margin-right: 5px}
+.animateFade{height: 5px;width:100%;position: absolute;bottom: 0px;}
+.animateFade.fadeOutDown{background: rgba(19,153,157,1);background: -moz-radial-gradient(center, ellipse cover, rgba(19,153,157,1) 0%, rgba(27,66,84,0.08) 72%, rgba(27,66,84,0.05) 74%);background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(19,153,157,1)), color-stop(72%, rgba(27,66,84,0.08)), color-stop(74%, rgba(27,66,84,0.05)));background: -webkit-radial-gradient(center, ellipse cover, rgba(19,153,157,1) 0%, rgba(27,66,84,0.08) 72%, rgba(27,66,84,0.05) 74%);background: -o-radial-gradient(center, ellipse cover, rgba(19,153,157,1) 0%, rgba(27,66,84,0.08) 72%, rgba(27,66,84,0.05) 74%);background: -ms-radial-gradient(center, ellipse cover, rgba(19,153,157,1) 0%, rgba(27,66,84,0.08) 72%, rgba(27,66,84,0.05) 74%);background: radial-gradient(ellipse at center, rgba(19,153,157,1) 0%, rgba(27,66,84,0.08) 72%, rgba(27,66,84,0.05) 74%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#13999d', endColorstr='#1b4254', GradientType=1 );}
+.animateFade.fadeOutDown .animateFadeText{font-size: 0.625rem;color: #30adac;top: -20px;position: relative;text-shadow: 0rem 0rem 1rem #30adac;user-select: none;cursor: pointer;}
+.animateFade .icon.hide{display: none;}
+.animateFade.fadeOutDown .icon{top: -34px;position: relative;color: rgba(48,173,172,.5);}
+.animateFade.fadeOutUp{background: rgba(226,76,101,1);background: -moz-radial-gradient(center, ellipse cover, rgba(226,76,101,1) 0%, rgba(135,71,100,0.08) 72%, rgba(135,71,100,0.05) 74%);background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(226,76,101,1)), color-stop(72%, rgba(135,71,100,0.08)), color-stop(74%, rgba(135,71,100,0.05)));background: -webkit-radial-gradient(center, ellipse cover, rgba(226,76,101,1) 0%, rgba(135,71,100,0.08) 72%, rgba(135,71,100,0.05) 74%);background: -o-radial-gradient(center, ellipse cover, rgba(226,76,101,1) 0%, rgba(135,71,100,0.08) 72%, rgba(135,71,100,0.05) 74%);background: -ms-radial-gradient(center, ellipse cover, rgba(226,76,101,1) 0%, rgba(135,71,100,0.08) 72%, rgba(135,71,100,0.05) 74%);background: radial-gradient(ellipse at center, rgba(226,76,101,1) 0%, rgba(135,71,100,0.08) 72%, rgba(135,71,100,0.05) 74%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e24c65', endColorstr='#874764', GradientType=1 );}
+.animateFade.fadeOutUp .animateFadeText{font-size: 0.625rem;color: #d97388;top: -6px;position: relative;text-shadow: 0rem 0rem 1rem #d97388;user-select: none;cursor: pointer;}
+.animateFade.fadeOutUp .icon{top: -45px;position: relative;color: rgba(217,115,136,.5);}
+
+/* tcc弹出层 */
+/* 表格样式 */
+#tcc .chartsTable,#tcc .chartsTable_settingBox{height:400px;}
+#tcc .chartsTable{overflow-y: inherit;}
+#tcc .bottomBtn{width: 100%;height: 35px;font-size: 14px;margin-top: 47px;}
+#tcc .bottomBtn > .iconFont{position: relative;top: 5px;margin: 0 10px;}
+#tcc .chartsTable .btn-back{width: 100px;height: 30px;border-radius: 5px;text-align: center;color: #fff;background-color: #6e7798;font-size: 14px;line-height: 30px;float: right;cursor: pointer;display: inline-block;}
+#tcc .chartsTable .btn-viewReport{background-color: #0ea9aa;}
+#tcc .chartsTable_settingBox .btn-back{width: 100px;height: 30px;border-radius: 5px;text-align: center;color: #fff;background-color: #6e7798;font-size: 14px;line-height: 30px;float: right;cursor: pointer;margin-top: 20px;}
+.myChangeList{width: calc(~'100% - 0px');height: 360px;max-height: 645px;position: relative;}
+.myChangeList .fixTh{position: absolute;top: 0;left: 0;z-index: 0;}
+.myChangeList .fixTb{width: 100%;height: calc(~'100% - 0px');overflow-y: auto;position: relative;top: 36px;}
+.myChangeList .fixTb::-webkit-scrollbar{display: none;}
+.myChangeListL{margin-right: 20px;margin-left: 10px;}
+.myChangeList table{width: 100%;color: #fff;text-align: center;font-size: 12px;table-layout: fixed;}
+.myChangeList table tr{width: 100%;cursor: pointer;}
+.myChangeList table tr:hover{background-color: #394263;}
+.myChangeList table td{vertical-align: middle;padding: 6px 0;}
+.myChangeList table td.slhTd{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;padding: 11px 0;max-height: 50px;}
+.myChangeList table>thead th{background-color: #6e7798;padding: 10px 0;}
+.myChangeList table>thead th:last-child{border-right: 0;}
+.myChangeList table>tbody tr{background-color: #50597a;}
+.myChangeList table>tbody tr td{border-bottom: 1px solid #394263;}
+.myChangeList table>tbody tr:last-child td{border-bottom: 0;}
+.myChangeList table>tbody td .btn{font-size:12px;width: 100px;margin: 0 auto;}
+/* 滚动条 */
+.zUIpanelScrollBox,.zUIpanelScrollBar{width:5px;top:4px;right:1px;border-radius:3px;}
+.zUIpanelScrollBox{background:black;opacity:0.1;filter:alpha(opacity=10);}
+.zUIpanelScrollBar{background:#fff;opacity:0.8;filter:alpha(opacity=80);}
+.layui-layer-content{overflow:-moz-scrollbars-none;}//火狐去除滚动条
+.layui-layer-content::-webkit-scrollbar{display: none;}//chrome去除滚动条
+
+/* 分页器 */
+#pageBox{text-align: center;}
+#pageBox .btn{display:inline-block;height: 20px;margin: 5px 3px 0;border-radius: 4px;text-align: center;font-size: 12px;padding: 5px 13px;cursor: pointer;}
+#pageBox .btn-prev,#pageBox .btn-next{background-color: #24999b;color: #fff}
+#pageBox .btn-num{background-color: #363f5b;color: #fff}

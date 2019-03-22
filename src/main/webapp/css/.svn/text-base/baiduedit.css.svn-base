@@ -1,0 +1,104 @@
+a:link,
+a:visited {
+	text-decoration: none;
+	color: #fff;
+}
+
+.list {
+	width: 210px;
+	margin: 0;
+	height: auto;
+}
+
+.list ul{
+	list-style: none;
+}
+
+.yiji{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	min-height: 290px;
+}
+
+.list ul li a {
+	padding-left: 10px;
+	color: #333;
+	font-size: 12px;
+	display: block;
+	font-weight: bold;
+	height: 36px;
+	line-height: 36px;
+	position: relative;
+}
+
+.list ul li .inactiveOn {
+	background: url(../images/on.png) no-repeat 184px center;
+}
+
+.list ul li .inactiveOff {
+	background: url(../images/off.png) no-repeat 184px center;
+}
+
+/*.list ul li ul {
+	display: block;
+}*/
+
+.list ul li ul li {
+	border-left: 0;
+	border-right: 0;
+}
+
+/*.list ul li ul li ul {
+	display: block;
+}*/
+
+.list ul li ul li a {
+	padding-left: 20px;
+}
+
+.list ul li ul li ul li a {
+	padding-left: 30px;
+}
+
+.editTitle{
+	position: absolute;
+	z-index: 99;
+	height: 60px;
+	display: none;
+}
+
+.editTitle input{
+	height: 30px;
+	font-size: 16px;
+}
+
+.editTitle .btnBox{
+	width: auto;
+	margin-top: 5px;
+}
+
+.editTitleBtn{
+	display: none;
+	position: absolute;
+	left: 5px;
+	top: 4px;
+	z-index: 98;
+}
+
+.HoverEditTitle{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.treeText{
+	font-size: 14px;
+}
+
+.baidueditBox{
+	margin-bottom: 20px;
+}
+
+.btnSubBox{
+	text-align: center;
+}

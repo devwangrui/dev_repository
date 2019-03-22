@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.YzDatasDicDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzDatasDic">
+    <result column="d_id" jdbcType="INTEGER" property="dId" />
+    <result column="c_id" jdbcType="INTEGER" property="cId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzDatasDic">
+    insert into yz_datas_dic (d_id, c_id)
+    values (#{dId,jdbcType=INTEGER}, #{cId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzDatasDic">
+    insert into yz_datas_dic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dId != null">
+        d_id,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dId != null">
+        #{dId,jdbcType=INTEGER},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  
+</mapper>

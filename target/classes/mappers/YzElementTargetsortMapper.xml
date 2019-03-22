@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zhengai.dao.YzElementTargetsortDao" >
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzElementTargetsort" >
+    <result column="element_id" property="elementId" jdbcType="INTEGER" />
+    <result column="targetsort_id" property="targetsortId" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="savaElementTarget" parameterType="com.example.zhengai.model.YzElementTargetsort" >
+    insert into yz_element_targetsort (element_id, targetsort_id)
+    values (#{elementId,jdbcType=INTEGER}, #{targetsortId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzElementTargetsort" >
+    insert into yz_element_targetsort
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="elementId != null" >
+        element_id,
+      </if>
+      <if test="targetsortId != null" >
+        targetsort_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="elementId != null" >
+        #{elementId,jdbcType=INTEGER},
+      </if>
+      <if test="targetsortId != null" >
+        #{targetsortId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  
+  <delete id="deleteByElementId" parameterType="java.lang.Integer">
+    delete from yz_element_targetsort where element_id = #{id}
+  </delete>
+  
+  
+</mapper>

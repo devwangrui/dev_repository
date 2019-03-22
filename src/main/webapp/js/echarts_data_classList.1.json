@@ -1,0 +1,36 @@
+{
+	"id": 0,
+	"title": "title1",
+	"chartsType": "pie",
+	"xname": ["title1", "title2", "title3", "title4"],
+	"piedata": [
+		{"value": 1,"name": "title1","fid":666},
+		{"value": 2,"name": "title2","fid":999},
+		{"value": 3,"name": "title3","fid":555},
+		{"value": 4,"name": "title4","fid":333}
+	]
+}
+// [{
+// 	"id": 0,
+// 	"title": "title1",
+// 	"chartsType": "pie",
+// 	"xname": ["title1", "title2", "title3", "title4"],
+// 	"piedata": [
+// 		{"value": 1,"name": "title1","fid":666},
+// 		{"value": 2,"name": "title2","fid":999},
+// 		{"value": 3,"name": "title3","fid":555},
+// 		{"value": 4,"name": "title4","fid":333}
+// 	]
+// }, {
+// 	"id": 1,
+// 	"title": "title3",
+// 	"chartsType": "bar",
+// 	"data": [7, 8, 9, 19],
+// 	"xname": ["title7", "title8", "title9", "title10"]
+// }, {
+// 	"id": 2	,
+// 	"title": "demo2",
+// 	"chartsType": "line",
+// 	"data": [312, 238, 429, 29],
+// 	"xname": ["title132", "title451", "title23", "title3"]
+// }]

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.CreatTableDao">
+  <update id="createTmpTable" parameterType="string">
+        CREATE TABLE `${tableName}` (
+  `xy_id` int(10)  DEFAULT NULL ,
+  `zy_id` int(20) DEFAULT NULL,
+  `nj` int(20) DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `num` float(20,2) DEFAULT NULL,
+  `class_id` int(20) DEFAULT NULL,
+  `y` int(20) DEFAULT NULL,
+  `m` int(20) DEFAULT NULL,
+  `d` int(20) DEFAULT NULL,
+  `add_time` varchar(50) DEFAULT NULL,
+  `sheng` varchar(20) DEFAULT NULL,
+  `sort` varchar(20) DEFAULT NULL,
+   `style_id` int(20) DEFAULT NULL,
+   `data_key` int(20) DEFAULT NULL
+   );
+    </update>
+
+    <!--删除表-->
+  <update id="dropTmpTable" parameterType="string">
+  DROP TABLE IF EXISTS `${tableName}`
+
+    </update>
+
+    <!--查询这张表是否存在-->
+    <select id="isExit" parameterType="java.lang.String" resultType="java.lang.String">
+       show TABLES like `tables`.#{tableName}
+    </select>
+
+
+
+</mapper>

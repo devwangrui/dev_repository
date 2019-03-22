@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.YzTransformDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzTransform">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="t_id" jdbcType="INTEGER" property="tId" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="e_id" jdbcType="INTEGER" property="eId" />
+    <result column="u_id" jdbcType="VARCHAR" property="uId" />
+    <result column="r_u_id" jdbcType="VARCHAR" property="rUId" />
+    <result column="solve" jdbcType="INTEGER" property="solve" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="gotime" jdbcType="VARCHAR" property="gotime" />
+    <result column="endtime" jdbcType="VARCHAR" property="endtime" />
+    <result column="remind" jdbcType="INTEGER" property="remind" />
+    <result column="is_zg" jdbcType="INTEGER" property="isZg" />
+    <result column="zg_time" jdbcType="VARCHAR" property="zgTime" />
+    <result column="is_exc" jdbcType="INTEGER" property="isExc" />
+    <result column="exc_time" jdbcType="VARCHAR" property="excTime" />
+    <result column="is_over" jdbcType="INTEGER" property="isOver" />
+    <result column="over_time" jdbcType="VARCHAR" property="overTime" />
+    <result column="add_time" jdbcType="VARCHAR" property="addTime" />
+    <result column="add_uid" jdbcType="VARCHAR" property="addUid" />
+    <result column="is_del" jdbcType="INTEGER" property="isDel" />
+    <result column="del_time" jdbcType="VARCHAR" property="delTime" />
+    <result column="del_uid" jdbcType="INTEGER" property="delUid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.example.zhengai.model.YzTransform">
+    <result column="r_content" jdbcType="LONGVARCHAR" property="rContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, t_id, sort, e_id, u_id, r_u_id, solve, num, gotime, endtime, remind, is_zg, zg_time, 
+    is_exc, exc_time, is_over, over_time, add_time, add_uid, is_del, del_time, del_uid
+  </sql>
+  <sql id="Blob_Column_List">
+    r_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from yz_transform
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from yz_transform
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzTransform">
+    insert into yz_transform (id, t_id, sort, 
+      e_id, u_id, r_u_id, solve, 
+      num, gotime, endtime, 
+      remind, is_zg, zg_time, 
+      is_exc, exc_time, is_over, 
+      over_time, add_time, add_uid, 
+      is_del, del_time, del_uid, 
+      r_content)
+    values (#{id,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, 
+      #{eId,jdbcType=INTEGER}, #{uId,jdbcType=VARCHAR}, #{rUId,jdbcType=VARCHAR}, #{solve,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER}, #{gotime,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR}, 
+      #{remind,jdbcType=INTEGER}, #{isZg,jdbcType=INTEGER}, #{zgTime,jdbcType=VARCHAR}, 
+      #{isExc,jdbcType=INTEGER}, #{excTime,jdbcType=VARCHAR}, #{isOver,jdbcType=INTEGER}, 
+      #{overTime,jdbcType=VARCHAR}, #{addTime,jdbcType=VARCHAR}, #{addUid,jdbcType=VARCHAR}, 
+      #{isDel,jdbcType=INTEGER}, #{delTime,jdbcType=VARCHAR}, #{delUid,jdbcType=INTEGER}, 
+      #{rContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzTransform">
+    insert into yz_transform
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tId != null">
+        t_id,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="eId != null">
+        e_id,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="rUId != null">
+        r_u_id,
+      </if>
+      <if test="solve != null">
+        solve,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="gotime != null">
+        gotime,
+      </if>
+      <if test="endtime != null">
+        endtime,
+      </if>
+      <if test="remind != null">
+        remind,
+      </if>
+      <if test="isZg != null">
+        is_zg,
+      </if>
+      <if test="zgTime != null">
+        zg_time,
+      </if>
+      <if test="isExc != null">
+        is_exc,
+      </if>
+      <if test="excTime != null">
+        exc_time,
+      </if>
+      <if test="isOver != null">
+        is_over,
+      </if>
+      <if test="overTime != null">
+        over_time,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="addUid != null">
+        add_uid,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="delTime != null">
+        del_time,
+      </if>
+      <if test="delUid != null">
+        del_uid,
+      </if>
+      <if test="rContent != null">
+        r_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tId != null">
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="eId != null">
+        #{eId,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=VARCHAR},
+      </if>
+      <if test="rUId != null">
+        #{rUId,jdbcType=VARCHAR},
+      </if>
+      <if test="solve != null">
+        #{solve,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="gotime != null">
+        #{gotime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="remind != null">
+        #{remind,jdbcType=INTEGER},
+      </if>
+      <if test="isZg != null">
+        #{isZg,jdbcType=INTEGER},
+      </if>
+      <if test="zgTime != null">
+        #{zgTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isExc != null">
+        #{isExc,jdbcType=INTEGER},
+      </if>
+      <if test="excTime != null">
+        #{excTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isOver != null">
+        #{isOver,jdbcType=INTEGER},
+      </if>
+      <if test="overTime != null">
+        #{overTime,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="addUid != null">
+        #{addUid,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null">
+        #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delUid != null">
+        #{delUid,jdbcType=INTEGER},
+      </if>
+      <if test="rContent != null">
+        #{rContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzTransform">
+    update yz_transform
+    <set>
+      <if test="tId != null">
+        t_id = #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="eId != null">
+        e_id = #{eId,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=VARCHAR},
+      </if>
+      <if test="rUId != null">
+        r_u_id = #{rUId,jdbcType=VARCHAR},
+      </if>
+      <if test="solve != null">
+        solve = #{solve,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="gotime != null">
+        gotime = #{gotime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null">
+        endtime = #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="remind != null">
+        remind = #{remind,jdbcType=INTEGER},
+      </if>
+      <if test="isZg != null">
+        is_zg = #{isZg,jdbcType=INTEGER},
+      </if>
+      <if test="zgTime != null">
+        zg_time = #{zgTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isExc != null">
+        is_exc = #{isExc,jdbcType=INTEGER},
+      </if>
+      <if test="excTime != null">
+        exc_time = #{excTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isOver != null">
+        is_over = #{isOver,jdbcType=INTEGER},
+      </if>
+      <if test="overTime != null">
+        over_time = #{overTime,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="addUid != null">
+        add_uid = #{addUid,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="delTime != null">
+        del_time = #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delUid != null">
+        del_uid = #{delUid,jdbcType=INTEGER},
+      </if>
+      <if test="rContent != null">
+        r_content = #{rContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.example.zhengai.model.YzTransform">
+    update yz_transform
+    set t_id = #{tId,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      e_id = #{eId,jdbcType=INTEGER},
+      u_id = #{uId,jdbcType=VARCHAR},
+      r_u_id = #{rUId,jdbcType=VARCHAR},
+      solve = #{solve,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      gotime = #{gotime,jdbcType=VARCHAR},
+      endtime = #{endtime,jdbcType=VARCHAR},
+      remind = #{remind,jdbcType=INTEGER},
+      is_zg = #{isZg,jdbcType=INTEGER},
+      zg_time = #{zgTime,jdbcType=VARCHAR},
+      is_exc = #{isExc,jdbcType=INTEGER},
+      exc_time = #{excTime,jdbcType=VARCHAR},
+      is_over = #{isOver,jdbcType=INTEGER},
+      over_time = #{overTime,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=VARCHAR},
+      add_uid = #{addUid,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      del_time = #{delTime,jdbcType=VARCHAR},
+      del_uid = #{delUid,jdbcType=INTEGER},
+      r_content = #{rContent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzTransform">
+    update yz_transform
+    set t_id = #{tId,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      e_id = #{eId,jdbcType=INTEGER},
+      u_id = #{uId,jdbcType=VARCHAR},
+      r_u_id = #{rUId,jdbcType=VARCHAR},
+      solve = #{solve,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      gotime = #{gotime,jdbcType=VARCHAR},
+      endtime = #{endtime,jdbcType=VARCHAR},
+      remind = #{remind,jdbcType=INTEGER},
+      is_zg = #{isZg,jdbcType=INTEGER},
+      zg_time = #{zgTime,jdbcType=VARCHAR},
+      is_exc = #{isExc,jdbcType=INTEGER},
+      exc_time = #{excTime,jdbcType=VARCHAR},
+      is_over = #{isOver,jdbcType=INTEGER},
+      over_time = #{overTime,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=VARCHAR},
+      add_uid = #{addUid,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      del_time = #{delTime,jdbcType=VARCHAR},
+      del_uid = #{delUid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

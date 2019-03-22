@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 开启驼峰映射 ，为自定义的SQL语句服务-->
+	<!--设置启用数据库字段下划线映射到java对象的驼峰式命名属性，默认为false-->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+
+	<typeAliases>
+		<!-- 
+			type:要被定义成别名的数据类型
+		 -->
+		<typeAlias type="com.example.zhengai.model.YzTarget" alias="Yztarget"/>
+		<typeAlias type="com.example.zhengai.model.YzTargetSort" alias="YzTargetSort"/>
+		
+		
+	</typeAliases>
+
+	<mappers>
+		<!--
+		<mapper resource="mappers/YzTargetSortMapper.xml" />
+		<mapper resource="mappers/YzElementMapper.xml" />
+		<mapper resource="mappers/YzDatasMapper.xml" />
+		<mapper resource="mappers/YzTargetViewMapper.xml" />
+		<mapper resource="mappers/YzTargetViewGlMapper.xml" />
+		<mapper resource="mappers/YzUserMapper.xml" />
+		<mapper resource="mappers/YzLayerMapper.xml" />
+		<mapper resource="mappers/YzRoleMapper.xml" />
+		<mapper resource="mappers/YzRoleUserMapper.xml" />
+		<mapper resource="mappers/YzUserElementMapper.xml" />
+		<mapper resource="mappers/YzChartMapper.xml" />
+		<mapper resource="mappers/YzTargetChartMapper.xml" />
+		<mapper resource="mappers/YzControllerSMapper.xml" />
+		<mapper resource="mappers/YzControllerMapper.xml" />
+		<mapper resource="mappers/YzControllerChartMapper.xml"/>
+		<mapper resource="mappers/YzNodeMapper.xml" />
+		<mapper resource="mappers/YzAccessMapper.xml" />
+		<mapper resource="mappers/YzElementTargetsortMapper.xml" />
+		<mapper resource="mappers/YzNoticeMapper.xml" />
+		<mapper resource="mappers/YzTargetMapper.xml" />
+		<mapper resource="mappers/YzDatasFormulaMapper.xml" />
+		<mapper resource="mappers/YzChartSearchMapper.xml" />
+		<mapper resource="mappers/YzChartSearchSMapper.xml" />
+		<mapper resource="mappers/YzChartSMapper.xml" />
+		<mapper resource="mappers/YzElementViewMapper.xml" />
+		<mapper resource="mappers/YzDatasDicMapper.xml"/>
+		<mapper resource="mappers/YzDicMapper.xml"/>
+		<mapper resource="mappers/YzTargetChartSearchMapper.xml"/>-->
+	</mappers>
+
+</configuration>

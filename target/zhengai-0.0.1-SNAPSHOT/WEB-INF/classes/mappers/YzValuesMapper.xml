@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.YzValuesDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzValues">
+    <id column="value_id" jdbcType="INTEGER" property="valueId" />
+    <result column="data_id" jdbcType="INTEGER" property="dataId" />
+    <result column="xy_id" jdbcType="INTEGER" property="xyId" />
+    <result column="num" jdbcType="REAL" property="num" />
+    <result column="num1" jdbcType="REAL" property="num1" />
+    <result column="add_time" jdbcType="VARCHAR" property="addTime" />
+    <result column="data_title" jdbcType="VARCHAR" property="dataTitle" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    value_id, data_id, xy_id, num, num1, add_time, data_title
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yz_values
+    where value_id = #{valueId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from yz_values
+    where value_id = #{valueId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzValues">
+    insert into yz_values (value_id, data_id, xy_id, 
+      num, num1, add_time, data_title
+      )
+    values (#{valueId,jdbcType=INTEGER}, #{dataId,jdbcType=INTEGER}, #{xyId,jdbcType=INTEGER}, 
+      #{num,jdbcType=REAL}, #{num1,jdbcType=REAL}, #{addTime,jdbcType=VARCHAR}, #{dataTitle,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzValues">
+    insert into yz_values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="valueId != null">
+        value_id,
+      </if>
+      <if test="dataId != null">
+        data_id,
+      </if>
+      <if test="xyId != null">
+        xy_id,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="num1 != null">
+        num1,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="dataTitle != null">
+        data_title,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="valueId != null">
+        #{valueId,jdbcType=INTEGER},
+      </if>
+      <if test="dataId != null">
+        #{dataId,jdbcType=INTEGER},
+      </if>
+      <if test="xyId != null">
+        #{xyId,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=REAL},
+      </if>
+      <if test="num1 != null">
+        #{num1,jdbcType=REAL},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTitle != null">
+        #{dataTitle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzValues">
+    update yz_values
+    <set>
+      <if test="dataId != null">
+        data_id = #{dataId,jdbcType=INTEGER},
+      </if>
+      <if test="xyId != null">
+        xy_id = #{xyId,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=REAL},
+      </if>
+      <if test="num1 != null">
+        num1 = #{num1,jdbcType=REAL},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTitle != null">
+        data_title = #{dataTitle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where value_id = #{valueId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzValues">
+    update yz_values
+    set data_id = #{dataId,jdbcType=INTEGER},
+      xy_id = #{xyId,jdbcType=INTEGER},
+      num = #{num,jdbcType=REAL},
+      num1 = #{num1,jdbcType=REAL},
+      add_time = #{addTime,jdbcType=VARCHAR},
+      data_title = #{dataTitle,jdbcType=VARCHAR}
+    where value_id = #{valueId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectValuesByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT * FROM yz_values WHERE data_id = #{dataId} AND xy_id =#{xyId}
+  </select>
+</mapper>

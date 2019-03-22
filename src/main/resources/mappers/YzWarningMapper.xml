@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.YzWarningDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzWarning">
+    <id column="warning_id" jdbcType="INTEGER" property="warningId" />
+    <result column="t_id" jdbcType="INTEGER" property="tId" />
+    <result column="go_time" jdbcType="VARCHAR" property="goTime" />
+    <result column="end_time" jdbcType="VARCHAR" property="endTime" />
+    <result column="warning_time" jdbcType="VARCHAR" property="warningTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    warning_id, t_id, go_time, end_time, warning_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yz_warning
+    where warning_id = #{warningId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from yz_warning
+    where warning_id = #{warningId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzWarning">
+    insert into yz_warning (warning_id, t_id, go_time,
+      end_time, warning_time)
+    values (#{warningId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER}, #{goTime,jdbcType=VARCHAR},
+      #{endTime,jdbcType=VARCHAR}, #{warningTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzWarning">
+    insert into yz_warning
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="warningId != null">
+        warning_id,
+      </if>
+      <if test="tId != null">
+        t_id,
+      </if>
+      <if test="goTime != null">
+        go_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="warningTime != null">
+        warning_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="warningId != null">
+        #{warningId,jdbcType=INTEGER},
+      </if>
+      <if test="tId != null">
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="goTime != null">
+        #{goTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="warningTime != null">
+        #{warningTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzWarning">
+    update yz_warning
+    <set>
+      <if test="tId != null">
+        t_id = #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="goTime != null">
+        go_time = #{goTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="warningTime != null">
+        warning_time = #{warningTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where warning_id = #{warningId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzWarning">
+    update yz_warning
+    set t_id = #{tId,jdbcType=INTEGER},
+      go_time = #{goTime,jdbcType=VARCHAR},
+      end_time = #{endTime,jdbcType=VARCHAR},
+      warning_time = #{warningTime,jdbcType=VARCHAR}
+    where warning_id = #{warningId,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>

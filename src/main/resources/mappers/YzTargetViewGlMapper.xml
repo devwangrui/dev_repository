@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.YzTargetViewGlKeyDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzTargetViewGlKey">
+    <id column="v_id" jdbcType="INTEGER" property="vId" />
+    <id column="t_id" jdbcType="INTEGER" property="tId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.zhengai.model.YzTargetViewGlKey">
+    delete from yz_target_view_gl
+    where v_id = #{vId,jdbcType=INTEGER}
+      and t_id = #{tId,jdbcType=INTEGER}
+  </delete>
+  
+  <delete id="deleteByVid" parameterType="java.lang.Integer">
+  delete from yz_target_view_gl
+    where v_id = #{vId,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="sava" parameterType="com.example.zhengai.model.YzTargetViewGlKey">
+    insert into yz_target_view_gl (v_id, t_id)
+    values (#{vId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzTargetViewGlKey">
+    insert into yz_target_view_gl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vId != null">
+        v_id,
+      </if>
+      <if test="tId != null">
+        t_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vId != null">
+        #{vId,jdbcType=INTEGER},
+      </if>
+      <if test="tId != null">
+        #{tId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

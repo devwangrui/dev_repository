@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="no">
+		<title>智慧诊改-诊改报告</title>
+		<link rel="stylesheet/less" type="text/less" href="css/myStyle.less" />
+		<link rel="stylesheet/less" type="text/less" href="css/changeReport.less" />
+		<script type="text/javascript" src="js/less.min.js?v=2.6.0"></script>
+		<script type="text/javascript" src="js/jquery.min.js?v=2.2.4"></script>
+		<script type="text/javascript" src="js/vue.js?v=2.5.16"></script>
+		<!--layer-->
+		<script type="text/javascript" src="js/layer/layer.js?v=3.1.1"></script>
+		<!-- icon -->
+		<script type="text/javascript" src="//at.alicdn.com/t/font_1025383_7wb2wgxbico.js"></script>
+	</head>
+	<body>
+		<div class="topbar">
+			<p class="tb_title">王小明</p>
+			<p class="tb_subtitle">欢迎使用诊改系统！</p>
+		</div>
+		<div class="navbar">
+			<ul>
+				<li>
+					<a href=""><span id="index_logo"></span>信远智慧诊改系统</a>
+				</li>
+				<li>
+					<a href="index.html">首页</a>
+				</li>
+				<li>
+					<a href="">报表中心</a>
+					<div class="er_ji">
+						<ul class="er_ji-list">
+							<li class="er_ji-item"><a href="">学生成长</a></li>
+							<li class="er_ji-item"><a href="">招生就业</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="">质量检测</a>
+					<div class="er_ji">
+						<ul class="er_ji-list">
+							<li class="er_ji-item"><a href="">学校质检</a></li>
+							<li class="er_ji-item"><a href="">分院质检</a></li>
+							<li class="er_ji-item"><a href="">专业质检</a></li>
+							<li class="er_ji-item"><a href="">班级质检</a></li>
+							<li class="er_ji-item"><a href="">课程质检</a></li>
+							<li class="er_ji-item"><a href="">教师质检</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="">诊改系统</a>
+					<div class="er_ji">
+						<ul class="er_ji-list">
+							<li class="er_ji-item"><a href="myChange.html">我的诊改</a></li>
+							<li class="er_ji-item"><a href="">提高标准</a></li>
+							<li class="er_ji-item"><a href="">运行效果</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="rightIcon">
+					<a id="iconTip" style="cursor: pointer;">
+						<svg class="icon iconTip" aria-hidden="true">
+							<use xlink:href="#icon-touxiang"></use>
+						</svg><span>1</span>
+					</a>
+					<div class="er_ji">
+						<ul class="er_ji-list">
+							<li class="er_ji-item"><a href="">通知1</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div id="app">
+			<div class="body-div">
+
+				<div class="ft1 floatLeft bodyTitle">
+					<p class="inline-block">诊改报告</p>
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+			<div class="bdcolor">
+				<div class="changehead classNum floatLeft">
+					<p class="title">补考课程数</p>
+					<div class="bubble bubble-green">
+						<p>标准值</p>
+						<p>{{bzz}}</p>
+					</div>
+					<div class="bubble bubble-red">
+						<p>当前值</p>
+						<p>{{dqz}}</p>
+					</div>
+				</div>
+
+				<div class="changehead charts floatLeft">
+
+					<div class="chartsDemoB floatLeft">
+						<div id="echarts-1" style="width: 100%;height: 250px;"></div>
+						<p>当前诊改趋势</p>
+					</div>
+					<div class="chartsDemoB floatLeft">
+						<div id="echarts-2" style="width: 100%;height: 250px;"></div>
+						<p>纵向对比图</p>
+					</div>
+					<div class="chartsDemoB floatLeft">
+						<div id="echarts-3" style="width: 100%;height: 250px;"></div>
+						<p>横向对比图</p>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="body-div">
+				<svg class="icon floatLeft" aria-hidden="true" style="margin:0 5px;font-size: 30px;color: #e9a550;">
+					<use xlink:href="#icon-lingdang"></use>
+				</svg>
+				<p class="inline-block floatLeft fontColor">提醒节点：每学期</p>
+				<svg class="icon floatLeft" aria-hidden="true" style="margin:1px 5px 0 30px;font-size: 26px;color: #508b9a;">
+					<use xlink:href="#icon-rili"></use>
+				</svg>
+				<p class="inline-block floatLeft fontColor">诊改时间节点：2018/01/0-2018/12/12</p>
+				<div class="btn btn-iron floatRight" id="btnShowUserView" @click="userViewLayer()" style="margin-right: 10px;">诊改人员查看
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-tubiao"></use>
+					</svg>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="body-div ">
+				<div id="content">
+
+					<div class="myChangeList myChangeListL floatLeft">
+						<table border="0" cellspacing="0" cellpadding="0" class="fixTh">
+							<thead>
+								<tr>
+									<th max-width="23.33%" width="23.33%">姓名</th>
+									<th max-width="23.33%" width="23.33%">提交时间</th>
+									<th max-width="40%" width="40%">原因分析</th>
+								</tr>
+							</thead>
+						</table>
+						<div class="fixTb" id="myscroll1">
+							<table border="0" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<th max-width="23.33%" width="23.33%" height="0" style="padding: 0;"></th>
+										<th max-width="23.33%" width="23.33%" height="0" style="padding: 0;"></th>
+										<th max-width="40%" width="40%" height="0" style="padding: 0;"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr v-for="(item,index) in myChangeListL">
+										<td>{{item.name}}</td>
+										<td>{{item.postTime}}</td>
+										<td class="slhTd">{{item.yyfx}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+
+					<div class="myChangeList myChangeListR floatLeft">
+						<table border="0" cellspacing="0" cellpadding="0" class="fixTh">
+							<thead>
+								<tr>
+									<th max-width="23.33%" width="23.33%">姓名</th>
+									<th max-width="23.33%" width="23.33%">提交时间</th>
+									<th max-width="40%" width="40%">改善措施</th>
+								</tr>
+							</thead>
+						</table>
+						<div class="fixTb" id="myscroll3">
+							<table border="0" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<th max-width="23.33%" width="23.33%" height="0" style="padding: 0;"></th>
+										<th max-width="23.33%" width="23.33%" height="0" style="padding: 0;"></th>
+										<th max-width="40%" width="40%" height="0" style="padding: 0;"></th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr v-for="(item,index) in myChangeListR">
+										<td>{{item.name}}</td>
+										<td>{{item.postTime}}</td>
+										<td class="slhTd">{{item.gscs}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+					<div class="clear"></div>
+					<div class="btn btn-iron floatRight" id="btnBack" @click="btnBack()" style="margin-right: 10px;margin-bottom: 50px;">返回</div>
+				</div>
+
+
+				<div class="clear"></div>
+			</div>
+
+
+			<div id="layer_userView">
+
+				<div class="ft1 bodyTitle">
+					<p class="inline-block">参与诊改人员</p>
+				</div>
+				<div class="myChangeList">
+					<table border="0" cellspacing="0" cellpadding="0" class="fixTh">
+						<thead>
+							<tr>
+								<th max-width="20%" width="20%">#</th>
+								<th max-width="40%" width="40%">状态</th>
+								<th max-width="40%" width="40%">推送人</th>
+							</tr>
+						</thead>
+					</table>
+					<div class="fixTb" id="myscroll4">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th max-width="20%" width="20%" height="0" style="padding: 0;"></th>
+									<th max-width="40%" width="40%" height="0" style="padding: 0;"></th>
+									<th max-width="40%" width="40%" height="0" style="padding: 0;"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="(item,index) in userView">
+									<td>{{index+1}}</td>
+									<td :class="userViewZt[item.zt][0]">{{userViewZt[item.zt][1]}}</td>
+									<td>{{item.name}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- //layer_userView -->
+
+		</div><!-- //Vueapp -->
+	</body>
+
+	<script type="text/javascript" src="js/style.js"></script>
+	<script type="text/javascript" src="js/scrollbar/zUI.js"></script>
+	<!-- echarts -->
+	<!-- <script type="text/javascript" src="js/echarts/echarts.common.min.js"></script> -->
+	<script type="text/javascript" src="js/echarts/echarts.min.js"></script>
+	<!-- echarts主题 -->
+	<script type="text/javascript" src="js/echarts/theme/walden.js"></script>
+	<script type="text/javascript" src="js/echarts/theme/westeros.js"></script>
+	
+	<script type="text/javascript" src="js/changeReport.js"></script>
+
+</html>

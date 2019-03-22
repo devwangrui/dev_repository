@@ -1,0 +1,79 @@
+/* 标准提升 */
+#app{min-width: 1340px;max-width: 1803px;margin: 0 auto;padding: 0 40px;}
+#content{padding: 0 20px;}
+.search_ipt{height: 40px;width: 300px;background-color: #1f232f;border-radius: 10px;margin: 10px 0 20px;}
+.search_ipt.search_ipt-small{width: 200px;}
+.search_ipt input{width: 280px;height: 20px;padding: 10px 13px;line-height: 20px;border-radius: 10px;position: relative;border: 0;outline: none;background-color: #1f232f;}
+.search_ipt.search_ipt-small input{width: 140px;}
+.dropDown{margin: 10px 5px 0;}
+.dropDown.dropDown_small{width: 145px;}
+/* 左侧菜单导航 */
+.list{width: 110px;max-height: 840px;margin-top: 20px;}
+.list .list-group{list-style: none;margin: 0;padding: 0;}
+.list .list-group .list-item{height: 120px;width: 100%;text-align: center;background-color: #2b344e;cursor: pointer;}
+.list .list-group .list-item p{font-size: 12px;margin-top: 7px;}
+.list .list-group .list-item .icon{color: #fff;font-size: 2.1rem;margin-top: 30px;}
+.list .list-group .list-item.select{background-color: #394262;}
+.list-r{width: calc(~'100% - 130px');padding-left: 20px;}
+.list-r .searchBar{padding: 0 10px;width: 100%;}
+.slide-fade-enter-active {transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);}//出现动画
+.slide-fade-leave-active {transition: all .3s ease;}//离开动画
+.slide-fade-enter, .slide-fade-leave-to{transform: translateX(10px);opacity: 0;}//最终
+#viewbox{width: 100%;min-height: 733px;}
+#viewbox .viewbox-item{width: calc(~'25% - 20px');min-height: 335px;margin: 0 10px 20px;float: left;}
+#viewbox .viewbox-item .item-info{border-bottom: 1px solid #1e263d;min-height: 135px;}
+#viewbox .viewbox-item .item-info .info-l{width: calc(~'100% - 5px');padding: 5px 0 0 5px;}
+#viewbox .viewbox-item .item-info .info-l .p1,#viewbox .viewbox-item .item-info .info-l .p2 {font-size: 14px;width: 50%;float: left;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+#viewbox .viewbox-item .item-info .info-l .p1 .icon,#viewbox .viewbox-item .item-info .info-l .p2 .icon{font-size: 1.4rem;position: relative;top: 3px;}
+#viewbox .viewbox-item .item-info .info-l .p1 .icon{color: #10a9aa;}
+#viewbox .viewbox-item .item-info .info-l .p2 .icon{color: #e84d68;}
+#viewbox .viewbox-item .item-info .info-r{width: calc(~'100% - 32px');padding: 5px;margin: 5px 10px;border: 1px solid #24989a;}
+#viewbox .viewbox-item .item-info .info-r .p1 {font-size: 14px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+#viewbox .viewbox-item .item-info .info-r .p2 {font-size: 12px;text-align: right;color: #9fa3b2;}
+#viewbox .viewbox-item .item-info .info-r .p1 .icon{color: #10a9aa;}
+#viewbox .viewbox-item .item-info .info-r .p2 .icon{color: #e84d68;}
+#viewbox .viewbox-item .item-info .info-b{width: calc(~'100% - 10px');padding: 5px;}
+#viewbox .viewbox-item .item-info .info-b .btn{float: right;width: 80px;height: 20px;margin: 0 3px 0;border-radius: 5px;text-align: center;font-size: 12px;padding: 2px 10px;cursor: pointer;color: #fff;}
+#viewbox .viewbox-item .item-info .info-b .icon{color: #fff;}
+#viewbox .viewbox-item .item-info .info-b .btn.btn-show{background-color: #249b9c;}
+#viewbox .viewbox-item .item-charts{min-height: 200px;}
+
+/* 弹出层 */
+#edit-tcc .dbb,#edit-tcc .recentUp{background-color: #505979;min-height: 190px;width: 95%;margin: 0 auto;}
+#edit-tcc .dbb .dbb-l,#edit-tcc .dbb .dbb-r{width: calc(~'50% - 20px');padding: 10px;float: left;min-height: 165px;}
+#edit-tcc .dbb .dbb-l .l{width: calc(~'100% - 78px');}
+#edit-tcc .dbb .dbb-l .l .icon{font-size: 30px;}
+#edit-tcc .dbb .dbb-l .l.l-t,#edit-tcc .dbb .dbb-l .l.l-d{background-repeat: no-repeat;background-size: 100% 100%;}
+#edit-tcc .dbb .dbb-l .l.l-t .p1,#edit-tcc .dbb .dbb-l .l.l-d .p1{font-size: 14px;}
+#edit-tcc .dbb .dbb-l .l.l-t .p2,#edit-tcc .dbb .dbb-l .l.l-d .p2{font-size: 18px;}
+#edit-tcc .dbb .dbb-l .l.l-t{background-image: url(../images/bubble-green.png);height: 75px;padding: 10px 0 0 78px;}
+#edit-tcc .dbb .dbb-l .l.l-d{background-image: url(../images/bubble-red.png);height: 70px;padding: 15px 0 0 78px;}
+#edit-tcc .dbb .dbb-l .l.l-t .icon{color: #329399;}
+#edit-tcc .dbb .dbb-l .l.l-d .icon{color: #de6172;}
+#edit-tcc .dbb .dbb-r .r{min-height: 43px;padding-top: 30px;font-weight: 400;}
+#edit-tcc .dbb .dbb-r .r.r-d input{width: 105px;height: 30px;outline: none;background-color: #505979;font-size: 16px;border: 1px solid #6e7797;padding-left: 5px;}
+#edit-tcc .recentUp{width: calc(~'95% - 10px');outline: none;font-size: 16px;border: 1px solid #6e7797;padding: 5px;resize: none;display: block;}
+.layer_Bg .layui-layer-btn0{width: 50px;background-color: #11aeb0 !important;text-align: center;font-size: 16px;color: #fff;border: 0;}//修改按钮
+.layer_Bg .layui-layer-btn1{width: 50px;background-color: #737b90 !important;text-align: center;font-size: 16px;color: #fff;border: 0;}//返回
+.layer_Bg .layui-layer-btn{padding: 0 10px 12px;}//修正弹出层按钮和边框不对其
+#up-tcc .notes{width: 95%;margin: 0 auto;background-color: #505979;height: 480px;overflow: hidden;}
+#up-tcc .notes ul{width: 100%;list-style: none;}
+#up-tcc .notes ul li{width: calc(~'100% - 30px');min-height: 50px;border-bottom: 1px solid #394263;padding: 15px;overflow: hidden;}
+#up-tcc .notes ul li .notesInfo{width: 80%;min-height: 50px;float: left;}
+#up-tcc .notes ul li .notesInfo .p1{font-size: 12px;}
+#up-tcc .notes ul li .notesInfo .p2{font-size: 14px;}
+#up-tcc .notes ul li .notesImg{width: 20%;min-height: 50px;float: left;}
+#up-tcc .notes ul li .notesImg img{position: relative;top: 10px;left: calc(~'50% - 15px');}
+
+/* 滚动条 */
+.zUIpanelScrollBox,.zUIpanelScrollBar{width:5px;top:4px;right:1px;border-radius:3px;}
+.zUIpanelScrollBox{background:black;opacity:0.1;filter:alpha(opacity=10);}
+.zUIpanelScrollBar{background:#fff;opacity:0.8;filter:alpha(opacity=80);}
+.layui-layer-content{overflow:-moz-scrollbars-none;}//火狐去除滚动条
+.layui-layer-content::-webkit-scrollbar{display: none;}//chrome去除滚动条
+
+/* 分页器 */
+#pageBox{text-align: center;width: 100%;position: relative;top: -5px;}
+#pageBox .btn{display:inline-block;height: 20px;margin: 2px 3px 0;border-radius: 4px;text-align: center;font-size: 12px;padding: 5px 13px;cursor: pointer;}
+#pageBox .btn-prev,#pageBox .btn-next{background-color: #24999b;color: #fff}
+#pageBox .btn-num{background-color: #363f5b;color: #fff}

@@ -1,0 +1,41 @@
+[{
+	"id": 0,
+	"title": "title1",
+	"chartsType": "pie",
+	"xname": ["title1", "title2", "title3", "title4"],
+	"piedata": [
+		{"value": 1,"name": "title1","fid":666},
+		{"value": 2,"name": "title2","fid":999},
+		{"value": 3,"name": "title3","fid":555},
+		{"value": 4,"name": "title4","fid":333}
+	]
+} , {
+	"id": 1,
+	"title": "title2",
+	"chartsType": "bar",
+	"data": [
+		{"value": 1,"name": "title3","fid":213},
+		{"value": 2,"name": "title4","fid":214},
+		{"value": 3,"name": "title5","fid":134},
+		{"value": 4,"name": "title6","fid":351}
+	],
+	"xname": ["title4", "title5", "title6", "title7"]
+}, {
+	"id": 2,
+	"title": "title3",
+	"chartsType": "bar",
+	"data": [7, 8, 9, 19],
+	"xname": ["title7", "title8", "title9", "title10"]
+}, {
+	"id": 3,
+	"title": "title4",
+	"chartsType": "line",
+	"data": [7, 8, 9, 19],
+	"xname": ["title11", "title12", "title14", "title13"]
+}, {
+	"id": 4,
+	"title": "demo2",
+	"chartsType": "line",
+	"data": [312, 238, 429, 29],
+	"xname": ["title132", "title451", "title23", "title3"]
+}]

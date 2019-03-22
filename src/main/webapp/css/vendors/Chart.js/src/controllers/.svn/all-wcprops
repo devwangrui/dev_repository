@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/controllers
+END
+controller.line.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/controllers/controller.line.js
+END
+controller.doughnut.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/controllers/controller.doughnut.js
+END
+controller.radar.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/controllers/controller.radar.js
+END
+controller.bar.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/controllers/controller.bar.js
+END
+controller.bubble.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/controllers/controller.bubble.js
+END
+controller.polarArea.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/controllers/controller.polarArea.js
+END

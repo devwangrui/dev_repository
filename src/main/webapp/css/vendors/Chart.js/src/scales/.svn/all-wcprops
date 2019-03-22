@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/scales
+END
+scale.category.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/scales/scale.category.js
+END
+scale.time.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/scales/scale.time.js
+END
+scale.logarithmic.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/scales/scale.logarithmic.js
+END
+scale.linear.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/scales/scale.linear.js
+END
+scale.radialLinear.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/zhengai/!svn/ver/84/zhengai-11.15/WebRoot/css/vendors/Chart.js/src/scales/scale.radialLinear.js
+END

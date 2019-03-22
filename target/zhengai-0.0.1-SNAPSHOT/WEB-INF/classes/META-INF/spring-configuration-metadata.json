@@ -1,0 +1,12 @@
+{
+  "groups": [
+    {
+      "name": "mybatis.configuration",
+      "type": "org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer",
+      "sourceType": "com.example.zhengai.MybatisConfig",
+      "sourceMethod": "getCustomizer()"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

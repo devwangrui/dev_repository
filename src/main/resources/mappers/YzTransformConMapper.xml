@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.YzTransformConDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzTransformCon">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="t_id" jdbcType="INTEGER" property="tId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="add_time" jdbcType="VARCHAR" property="addTime" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+
+  <resultMap id="BaseUid" type="com.example.zhengai.query.Uid">
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+  </resultMap>
+
+  <resultMap id="transformJoinUser" type="com.example.zhengai.model.YzTransformCon">
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+      <association property="yzUser" javaType="com.example.zhengai.model.YzUser">
+      <id column="bid" property="id" jdbcType="INTEGER" />
+      <result column="username" property="username" jdbcType="VARCHAR" />
+      <result column="name" property="name" jdbcType="VARCHAR" />
+      <result column="bs" property="sort" jdbcType="INTEGER" />
+      <result column="bm_one" property="bmOne" jdbcType="INTEGER" />
+      <result column="bm_two" property="bmTwo" jdbcType="INTEGER" />
+      <result column="bm_three" property="bmThree" jdbcType="INTEGER" />
+      <result column="bat" property="addTime" jdbcType="INTEGER" />
+      <result column="last_login" property="lastLogin" jdbcType="INTEGER" />
+      <result column="login_num" property="loginNum" jdbcType="INTEGER" />
+      </association>
+  </resultMap>
+
+  <resultMap id="transformJoinUserCondition" type="com.example.zhengai.model.YzTransformCon" extends="BaseResultMap">
+    <association property="yzUser" javaType="com.example.zhengai.model.YzUser">
+      <id column="bid" property="id" jdbcType="INTEGER" />
+      <result column="username" property="username" jdbcType="VARCHAR" />
+      <result column="name" property="name" jdbcType="VARCHAR" />
+      <result column="bs" property="sort" jdbcType="INTEGER" />
+      <result column="bm_one" property="bmOne" jdbcType="INTEGER" />
+      <result column="bm_two" property="bmTwo" jdbcType="INTEGER" />
+      <result column="bm_three" property="bmThree" jdbcType="INTEGER" />
+      <result column="bat" property="addTime" jdbcType="INTEGER" />
+      <result column="last_login" property="lastLogin" jdbcType="INTEGER" />
+      <result column="login_num" property="loginNum" jdbcType="INTEGER" />
+    </association>
+  </resultMap>
+
+  <resultMap id="transformJoinUser1" type="com.example.zhengai.model.YzTransformCon" extends="BaseResultMap">
+    <association property="yzUser" javaType="com.example.zhengai.model.YzUser">
+      <id column="bid" property="id" jdbcType="INTEGER" />
+      <result column="username" property="username" jdbcType="VARCHAR" />
+      <result column="name" property="name" jdbcType="VARCHAR" />
+      <result column="bs" property="sort" jdbcType="INTEGER" />
+      <result column="bm_one" property="bmOne" jdbcType="INTEGER" />
+      <result column="bm_two" property="bmTwo" jdbcType="INTEGER" />
+      <result column="bm_three" property="bmThree" jdbcType="INTEGER" />
+      <result column="bat" property="addTime" jdbcType="INTEGER" />
+      <result column="last_login" property="lastLogin" jdbcType="INTEGER" />
+      <result column="login_num" property="loginNum" jdbcType="INTEGER" />
+    </association>
+  </resultMap>
+
+  <select id="selectZhengaiUser" resultMap="transformJoinUser" parameterType="java.lang.Integer">
+   SELECT DISTINCT a.u_id,b.id bid,b.username ,b.`name` ,b.sort bs,b.bm_one ,b.bm_two ,b.bm_three ,b.add_time bat,b.last_login ,b.login_num FROM yz_transform_con a ,yz_user b WHERE a.t_id =#{tId} and a.u_id =b.id
+
+  </select>
+  <!--<select id="selectZhengaiUserCondition" resultMap="transformJoinUserCondition" parameterType="java.util.Map">
+     SELECT a.*,b.id bid,b.username ,b.`name` ,b.sort bs,b.bm_one ,b.bm_two ,b.bm_three ,b.add_time bat,b.last_login ,b.login_num FROM yz_transform_con a ,yz_user b WHERE a.t_id =#{tId} and a.u_id =b.id AND a.u_id = #{userId}
+
+  </select>-->
+
+  <select id="selectZhengaiUserCondition" resultMap="transformJoinUserCondition" parameterType="java.util.Map">
+     SELECT a.*,b.id bid,b.username ,b.`name` ,b.sort bs,b.bm_one ,b.bm_two ,b.bm_three ,b.add_time bat,b.last_login ,b.login_num FROM yz_transform_con a ,yz_user b WHERE a.t_id =#{tId} and a.u_id =b.id AND a.u_id = #{userId} AND a.sort =#{sort}
+
+  </select>
+  <!--<resultMap extends="BaseResultMap" id="BaseResultMap" type="com.example.zhengai.model.YzTransformCon">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>-->
+  <sql id="Base_Column_List">
+    id, t_id, u_id, add_time, sort
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *  from yz_transform_con
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from yz_transform_con
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzTransformCon">
+    insert into yz_transform_con (id, t_id, u_id, 
+      add_time, sort, content
+      )
+    values (#{id,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, 
+      #{addTime,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzTransformCon">
+    insert into yz_transform_con
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tId != null">
+        t_id,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tId != null">
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzTransformCon">
+    update yz_transform_con
+    <set>
+      <if test="tId != null">
+        t_id = #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.example.zhengai.model.YzTransformCon">
+    update yz_transform_con
+    set t_id = #{tId,jdbcType=INTEGER},
+      u_id = #{uId,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzTransformCon">
+    update yz_transform_con
+    set t_id = #{tId,jdbcType=INTEGER},
+      u_id = #{uId,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>

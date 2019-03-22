@@ -1,0 +1,69 @@
+//暗色系
+@charset "utf-8";
+@fontColor:#fefefe;//网页字体颜色
+@navbarBgc:#1f2330;//导航背景颜色
+@fixBoxBgc:#394263;//每个格子的背景颜色 and layer 弹出层背景颜色
+@moreColor1:#189aa1;//more暗绿色
+@moreColor2:#cc324c;//more暗红色
+@droplistLiOdd:#21273a;//下拉列表单数背景颜色
+@droplistLiEven:#2d344e;//下拉列表双数背景颜色
+body{background: url(../images/bg_dark.jpg);padding: 0 50px;}
+.topbar .tb_title{font-size: 20px;color: @fontColor;}
+.topbar .tb_subtitle{font-size: 14px;color: @fontColor;}
+.navbar{background-color: @navbarBgc;}
+.navbar ul li a{color: @fontColor;}
+.fixBox{background-color: @fixBoxBgc;}
+.ft1 p{color: @fontColor;}
+.ft2 p{color: @fontColor;}
+.kjBox .kjBox_t{color: @fontColor;}
+.fixBox2_ulBox ul li a,.fixBox3_ulBox ul li a{color: @fontColor;}
+.more a{font-size: 16px;font-family: Arial, Helvetica, sans-serif;}
+.blackGreen{color:@moreColor1;}//more 
+.blackRed{color:@moreColor2;}//more 
+.dropDown .p1,.dropDown .icon,.droplist li{color: @fontColor;}//下拉列表字体颜色
+.droplist ul li:nth-of-type(odd){background-color: @droplistLiOdd;opacity: .96;}
+.droplist ul li:nth-of-type(even){background-color: @droplistLiEven;opacity: .96;}
+//grid_layout
+.vue-grid-item:not(.vue-grid-placeholder) {background: @fixBoxBgc;}//item 背景颜色
+// layer
+#tcc{background-color: @fixBoxBgc;color: @fontColor;}
+#tcc .chartsTable{background-color: #50597a;}
+/* 课程列表 */
+.search_ipt input{color: @fontColor;}
+.classBox{background-color: @fixBoxBgc;}/* 竖向分布图 */
+.col-3 .classTitle,.col-4 .classTitle,.col-6 .classTitle{color: @fontColor;}
+.codeBox .codeCard{color: @fontColor;}//code图标文字颜色
+.codeBox .codeNum{color: @fontColor;}//code数字颜色
+.infoBox .info .p1{color: @fontColor;}//分院专业责任人颜色
+.infoBox .info .p2{color: #adadaf;}//分院专业责任人颜色
+
+
+
+/* 我的诊改 */
+.btn-iron{color: @fontColor;background-color: #6b7083;}
+.btn-iron .icon{color: @moreColor1;}
+.myChangeList table>tbody td .btn-green{color: @fontColor;background-color: @moreColor1;}
+.myChangeList table>tbody td .btn-orange{color: @fontColor;background-color: #e8a74d;}
+.layer_Bg{background-color: @fixBoxBgc !important;}
+.layer_Bg .layui-layer-btn0{color: @fontColor !important;background-color: #6b7083 !important;border-color: #6b7083 !important;}
+#layer_yyfx textarea,#layer_gscs textarea{background-color: @fixBoxBgc;color: @fontColor;}
+/* 诊改报告 */
+.changehead .title{color: @fontColor;}
+.changehead.classNum .bubble p{color: @fontColor;}
+.changehead.charts .chartsDemoB p{color: @fontColor;}
+.fontColor {color: @fontColor;}
+/* 诊改概况 */
+#table_l .chartsTable .myChangeListUl_f>li{color: #d4d3d3;}
+/* 提升标准 */
+.list .list-group .list-item{color: @fontColor;}//左侧导航文字颜色
+#viewbox .viewbox-item{background-color: @fixBoxBgc;}
+#viewbox .viewbox-item .item-info .info-l .p1,#viewbox .viewbox-item .item-info .info-l .p2 {color: @fontColor;}
+#viewbox .viewbox-item .item-info .info-r .p1 {color: @fontColor;}
+#edit-tcc .dbb .dbb-l .l.l-t .p1,#edit-tcc .dbb .dbb-l .l.l-d .p1{color: @fontColor;}
+#edit-tcc .dbb .dbb-l .l.l-t .p2,#edit-tcc .dbb .dbb-l .l.l-d .p2{color: @fontColor;}
+#edit-tcc .dbb .dbb-r .r{color: @fontColor;}
+#edit-tcc .dbb .dbb-r .r.r-d input{color: @fontColor;}
+#edit-tcc .recentUp{color: @fontColor;}
+#up-tcc .notes ul li .notesInfo .p1,#up-tcc .notes ul li .notesInfo .p2{color: @fontColor;}
+/* 子页 */
+.listBar ul li{color: @fontColor;}

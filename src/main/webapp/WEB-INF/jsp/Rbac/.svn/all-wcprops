@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/zhengai/!svn/ver/110/zhengai-11.15/WebRoot/WEB-INF/jsps/Rbac
+END
+role_add.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/zhengai/!svn/ver/50/zhengai-11.15/WebRoot/WEB-INF/jsps/Rbac/role_add.jsp
+END
+node.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/zhengai/!svn/ver/108/zhengai-11.15/WebRoot/WEB-INF/jsps/Rbac/node.jsp
+END
+node_add.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/zhengai/!svn/ver/50/zhengai-11.15/WebRoot/WEB-INF/jsps/Rbac/node_add.jsp
+END
+access.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/zhengai/!svn/ver/110/zhengai-11.15/WebRoot/WEB-INF/jsps/Rbac/access.jsp
+END
+role.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/zhengai/!svn/ver/60/zhengai-11.15/WebRoot/WEB-INF/jsps/Rbac/role.jsp
+END

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zhengai.dao.YzDicDao" >
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzDic" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap type="com.example.zhengai.model.YzDic" id="BaseDatasDic" extends="BaseResultMap">
+  	<collection property="user" ofType="com.example.zhengai.model.YzDatasDic">
+  	 	<result column="d_id" jdbcType="INTEGER" property="dId" />
+    	<result column="c_id" jdbcType="INTEGER" property="cId" />
+  	</collection>
+  </resultMap>
+  <resultMap type="com.example.zhengai.model.YzDic" id="BaseDatas" extends="BaseDatasDic">
+  	<collection property="list" ofType="com.example.zhengai.model.YzDatas">
+  		<id column="id1" jdbcType="INTEGER" property="id" />
+    	<result column="title1" jdbcType="VARCHAR" property="title" />
+    	<result column="sort1" jdbcType="INTEGER" property="sort" />
+    	<result column="table" jdbcType="VARCHAR" property="table" />
+  	</collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, sort, pid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yz_dic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yz_dic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzDic" >
+    insert into yz_dic (id, title, sort, 
+      pid)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, 
+      #{pid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzDic" >
+    insert into yz_dic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhengai.model.YzDic" >
+    update yz_dic
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzDic" >
+    update yz_dic
+    set title = #{title,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAllDatas" resultMap="BaseDatas">
+  		select a.*,b.*,c.id as id1, c.title as title1, c.sort as sort1, c.`table` from centraldatabase.yz_dic as a,centraldatabase.yz_datas_dic as b,centraldatabase.yz_datas as c where a.id=b.c_id and b.d_id=c.id;
+  
+  </select>
+</mapper>

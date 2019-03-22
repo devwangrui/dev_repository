@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.YzDatasDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzDatas">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="table" jdbcType="VARCHAR" property="table" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, sort, `table`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from centraldatabase.yz_datas
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectDatas" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from centraldatabase.yz_datas where title like '%${_parameter}%'    
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from centraldatabase.yz_datas
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="sava" parameterType="com.example.zhengai.model.YzDatas">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+        select LAST_INSERT_ID()
+     </selectKey>
+    insert into centraldatabase.yz_datas (id, title, sort, 
+      `table`)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{table,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzDatas">
+    insert into centraldatabase.yz_datas
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="table != null">
+        table,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="table != null">
+        #{table,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="com.example.zhengai.model.YzDatas">
+    update centraldatabase.yz_datas
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="table != null">
+        table = #{table,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhengai.model.YzDatas">
+    update centraldatabase.yz_datas
+    set title = #{title,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      table = #{table,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByTitle" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from centraldatabase.yz_datas
+    
+  </select>
+</mapper>

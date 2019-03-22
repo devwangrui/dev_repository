@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhengai.dao.BaseDatasDao">
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.BaseDatas">
+    <result column="xy_id" jdbcType="INTEGER" property="xyId" />
+    <result column="zy_id" jdbcType="INTEGER" property="zyId" />
+    <result column="nj" jdbcType="INTEGER" property="nj" />
+    <result column="num" jdbcType="REAL" property="num" />
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="y" jdbcType="INTEGER" property="y" />
+    <result column="m" jdbcType="INTEGER" property="m" />
+    <result column="d" jdbcType="INTEGER" property="d" />
+    <result column="add_time" jdbcType="VARCHAR" property="addTime" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="sort" jdbcType="VARCHAR" property="sort" />
+    <result column="style_id" jdbcType="INTEGER" property="styleId" />
+    <result column="data_key" jdbcType="INTEGER" property="dataKey" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.zhengai.model.BaseDatas">
+    insert into yz_stu_nopass_xy (xy_id, zy_id, nj,
+      num, class_id, y, m, 
+      d, add_time, sheng, 
+      sort,style_Id,data_key,title)
+    values (#{xyId,jdbcType=INTEGER}, #{zyId,jdbcType=INTEGER}, #{nj,jdbcType=INTEGER}, 
+      #{num,jdbcType=REAL}, #{classId,jdbcType=INTEGER}, #{y,jdbcType=INTEGER}, #{m,jdbcType=INTEGER}, 
+      #{d,jdbcType=INTEGER}, #{addTime,jdbcType=VARCHAR}, #{sheng,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=VARCHAR},#{styleId,jdbcType=INTEGER}, #{dataKey,jdbcType=INTEGER},#{title,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.BaseDatas">
+    insert into yz_stu_nopass_xy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xyId != null">
+        xy_id,
+      </if>
+      <if test="zyId != null">
+        zy_id,
+      </if>
+      <if test="nj != null">
+        nj,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="y != null">
+        y,
+      </if>
+      <if test="m != null">
+        m,
+      </if>
+      <if test="d != null">
+        d,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="style_Id != null">
+        styleId,
+      </if>
+      <if test="data_key != null">
+        dataKey,
+      </if>
+      <if test="title != null">
+        title
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xyId != null">
+        #{xyId,jdbcType=INTEGER},
+      </if>
+      <if test="zyId != null">
+        #{zyId,jdbcType=INTEGER},
+      </if>
+      <if test="nj != null">
+        #{nj,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=REAL},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="y != null">
+        #{y,jdbcType=INTEGER},
+      </if>
+      <if test="m != null">
+        #{m,jdbcType=INTEGER},
+      </if>
+      <if test="d != null">
+        #{d,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=VARCHAR},
+      </if>
+      <if test="style_Id != null">
+        #{styleId,jdbcType=VARCHAR},
+      </if>
+      <if test="data_key != null">
+        #{dataKey,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=INTEGER}
+      </if>
+
+    </trim>
+  </insert>
+
+
+  <select id="selectAllDatas" parameterType="java.lang.String" resultMap="BaseResultMap">
+
+    select  * from  ${_parameter}
+  </select>
+
+  <update id="update" parameterType="java.util.Map">
+    UPDATE  ${tableName} SET style_id =#{styleId} WHERE data_key=#{dataKey}
+  </update>
+
+
+</mapper>

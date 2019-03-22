@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zhengai.dao.YzElementViewDao" >
+  <resultMap id="BaseResultMap" type="com.example.zhengai.model.YzElementViewKey" >
+    <id column="e_id" property="eId" jdbcType="INTEGER" />
+    <id column="v_id" property="vId" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.zhengai.model.YzElementViewKey" >
+    delete from yz_element_view
+    where e_id = #{eId,jdbcType=INTEGER}
+      and v_id = #{vId,jdbcType=INTEGER}
+  </delete>
+   <delete id="deleteByPrimaryKeyEid"  parameterType="java.lang.Integer">
+    delete from yz_element_view
+    where e_id = #{id,jdbcType=INTEGER};
+
+  </delete>
+  <insert id="insert" parameterType="com.example.zhengai.model.YzElementViewKey" >
+    insert into yz_element_view (e_id, v_id)
+    values (#{eId,jdbcType=INTEGER}, #{vId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.zhengai.model.YzElementViewKey" >
+    insert into yz_element_view
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="eId != null" >
+        e_id,
+      </if>
+      <if test="vId != null" >
+        v_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="eId != null" >
+        #{eId,jdbcType=INTEGER},
+      </if>
+      <if test="vId != null" >
+        #{vId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,58 @@
+[{
+	"id": 0,
+	"title": "title1",
+	"chartsType": "pie",
+	"xname": ["title1", "title2", "title3", "title4"],
+	"piedata": [{
+			"value": 1,
+			"name": "title1",
+			"fid":45
+		},
+		{
+			"value": 2,
+			"name": "title2"
+		},
+		{
+			"value": 3,
+			"name": "title3"
+		},
+		{
+			"value": 4,
+			"name": "title4"
+		}
+	]
+}, {
+	"id": 1,
+	"title": "title2",
+	"chartsType": "bar",
+	"data": [4, 5, 6, 99],
+	"xname": ["title4", "title5", "title6", "title7"]
+}, {
+	"id": 3,
+	"title": "title3",
+	"chartsType": "pie",
+	"xname": ["title1", "title2", "title3", "title4"],
+	"piedata": [{
+			"value": 1,
+			"name": "title1"
+		},
+		{
+			"value": 2,
+			"name": "title2"
+		},
+		{
+			"value": 3,
+			"name": "title3"
+		},
+		{
+			"value": 4,
+			"name": "title4"
+		}
+	]
+}, {
+	"id": 2,
+	"title": "title3",
+	"chartsType": "line",
+	"data": [7, 8, 9, 19],
+	"xname": ["title7", "title8", "title9", "title10"]
+}]

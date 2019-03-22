@@ -1,0 +1,32 @@
+//亮色系
+@charset "utf-8";
+@fontColor:#fff;//网页字体颜色
+@navbarBgc:#1f2330;//导航背景颜色
+@fixBoxBgc:#394263;//每个格子的背景颜色 and layer 弹出层背景颜色
+@moreColor1:#189aa1;//more暗绿色
+@moreColor2:#cc324c;//more暗红色
+@droplistLiOdd:#21273a;//下拉列表单数背景颜色
+@droplistLiEven:#2d344e;//下拉列表双数背景颜色
+body{background: url(../images/bg_dark.jpg);padding: 0 50px;}
+.topbar .tb_title{font-size: 20px;color: @fontColor;}
+.topbar .tb_subtitle{font-size: 14px;color: @fontColor;}
+.navbar{background-color: @navbarBgc;}
+.navbar ul li a{color: @fontColor;}
+.fixBox{background-color: @fixBoxBgc;}
+.ft1 p{color: @fontColor;}
+.ft2 p{color: @fontColor;}
+.kjBox .kjBox_t{color: @fontColor;}
+.fixBox2_ulBox ul li a,.fixBox3_ulBox ul li a{color: @fontColor;}
+.more a{font-size: 16px;font-family: arial;}
+.blackGreen{color:@moreColor1;}//more 
+.blackRed{color:@moreColor2;}//more 
+.dropDown .p1,.dropDown .icon,.droplist li{color: @fontColor;}//下拉列表字体颜色
+.droplist ul li:nth-of-type(odd){background-color: @droplistLiOdd;opacity: .96;}
+.droplist ul li:nth-of-type(even){background-color: @droplistLiEven;opacity: .96;}
+//grid_layout
+.vue-grid-item:not(.vue-grid-placeholder) { background: @fixBoxBgc;}//item 背景颜色
+// layer
+#tcc{background-color: @fixBoxBgc;color: @fontColor;}
+#tcc .chartsTable{background-color: #50597a;}
+/* 课程列表 */
+.search_ipt input{@fontColor}

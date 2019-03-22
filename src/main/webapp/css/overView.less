@@ -1,0 +1,55 @@
+/* 诊改概况 */
+#app{min-width: 1340px;max-width: 1803px;margin: 0 auto;}
+#content{padding: 0 20px;}
+.search_ipt{height: 40px;width: 300px;background-color: #1f232f;border-radius: 10px;margin: 10px 0 20px;}
+.search_ipt.search_ipt-small{width: 220px;}
+.search_ipt input{width: 280px;height: 20px;padding: 10px 13px;line-height: 20px;border-radius: 10px;position: relative;border: 0;outline: none;background-color: #1f232f;}
+.search_ipt.search_ipt-small input{width: 160px;}
+
+/* 表格样式 */
+#table_l{width: 48%;height: 100%;min-height: 45rem;}
+#table_line{width: 4%;height: 100%;min-height: calc(~'45rem - 80px');padding-top: 80px;}
+#table_line ul{list-style: none;margin: 0;padding: 0;height: auto;}
+#table_line ul li{height: 114px;width: 100%;text-align: center;color: #fff;}
+#table_r{width: 48%;height: 100%;min-height: calc(~'45rem - 55px');padding-top: 55px;}
+#table_l .chartsTable{overflow-y: inherit;height: auto;}
+#table_l .chartsTable .myChangeList{width: 100%;}
+#table_l .chartsTable ul{list-style: none;margin: 0;padding: 0;}
+#table_l .chartsTable .myChangeListUl_f>li{float: left;width: 100%;font-size: 0.75rem;text-align: center;}
+#table_l .chartsTable .myChangeListUl_f .myChangeListli_f{margin: 11px 0 5px;cursor: pointer;}
+#table_l .chartsTable .myChangeListUl_f .myChangeListli_f:hover{background-color: rgba(255, 255, 255, .2);}
+#table_l .chartsTable .myChangeListUl_f .myChangeListli_f.select{background-color: rgba(255, 255, 255, .2);}
+#table_l .chartsTable .myChangeListUl_f .myChangeListUl_c>li{float: left;width: 14.28%;font-weight: normal;}
+#table_l .chartsTable .myChangeListUl_f .myChangeListUl_c.bd{height: 65px;border: 1px solid rgba(255, 255, 255, .09);line-height: 65px;font-size: 0.75rem;}
+#table_l .chartsTable .myChangeListUl_f .myChangeListUl_c.title>li{font-weight: bold;}
+#table_l .chartsTable .myChangeListUl_f .myChangeListUl_c.bd>li{height: 65px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+#table_l .chartsTable .myChangeListUl_f .myChangeListUl_c.bd>.orange{color: #e6a448;}
+#table_l .chartsTable .btn-show{width: 70px;height: 30px;border-radius: 5px;text-align: center;color: #fff;background-color: #10aaad;font-size: 14px;line-height: 30px;cursor: pointer;display: inline-block;margin: 20px auto;}
+
+#table_r .timeBar{height: 50px;width: 100%;}
+#table_r .timeBar .centerLine{width: 100%;background-color: #515a7a;height: 3px;border: 0;position: relative;top: calc(~'63% - 3px');z-index: 0;}
+#table_r .timeBar ul{list-style: none;margin: 0;padding: 0;}
+#table_r .timeBar>ul>li{width: 25%;max-width: 220px;float: left;}
+#table_r .timeBar>ul>li .tbbg{width: 41px;height: 50px;text-align: center;line-height: 50px;position: relative;z-index: 1;float: left;background-repeat: no-repeat;background-size: 100%;}
+#table_r .timeBar>ul>li .tbt{float: left;position: relative;z-index: 1;text-indent: 8px;height: 50px;}
+#table_r .timeBar>ul>li .tbt .p1{color: #d49849;font-size: 1rem;line-height: 1.56rem;}
+#table_r .timeBar>ul>li .tbt .p2{color: #c6c3c3;font-size: 0.68rem;line-height: 1.56rem;}
+.slide-fade-enter-active {transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);}//timebar出现动画
+.slide-fade-leave-active {transition: all .3s ease;}//timebar离开动画
+.slide-fade-enter, .slide-fade-leave-to{transform: translateX(10px);opacity: 0;}//最终
+#table_r .echartsBox{width: 100%;margin-top: 1.56rem;}
+#table_r .btn-report{width: 120px;height: 30px;border-radius: 5px;text-align: center;color: #fff;background-color: rgba(255, 255, 255, .3);font-size: 14px;line-height: 30px;cursor: pointer;display: inline-block;margin: 20px auto;}
+
+
+/* 滚动条 */
+.zUIpanelScrollBox,.zUIpanelScrollBar{width:5px;top:4px;right:1px;border-radius:3px;}
+.zUIpanelScrollBox{background:black;opacity:0.1;filter:alpha(opacity=10);}
+.zUIpanelScrollBar{background:#fff;opacity:0.8;filter:alpha(opacity=80);}
+.layui-layer-content{overflow:-moz-scrollbars-none;}//火狐去除滚动条
+.layui-layer-content::-webkit-scrollbar{display: none;}//chrome去除滚动条
+
+/* 分页器 */
+#pageBox{text-align: center;width: 100%;}
+#pageBox .btn{display:inline-block;height: 20px;margin: 5px 3px 0;border-radius: 4px;text-align: center;font-size: 12px;padding: 5px 13px;cursor: pointer;}
+#pageBox .btn-prev,#pageBox .btn-next{background-color: #24999b;color: #fff}
+#pageBox .btn-num{background-color: #363f5b;color: #fff}

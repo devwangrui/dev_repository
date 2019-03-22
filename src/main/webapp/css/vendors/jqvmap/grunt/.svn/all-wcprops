@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/zhengai/!svn/ver/59/zhengai-11.15/WebRoot/css/vendors/jqvmap/grunt
+END
+bump.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/zhengai/!svn/ver/59/zhengai-11.15/WebRoot/css/vendors/jqvmap/grunt/bump.js
+END
+qunit.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/zhengai/!svn/ver/59/zhengai-11.15/WebRoot/css/vendors/jqvmap/grunt/qunit.js
+END
+changelog.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/zhengai/!svn/ver/59/zhengai-11.15/WebRoot/css/vendors/jqvmap/grunt/changelog.js
+END
+concat.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/zhengai/!svn/ver/59/zhengai-11.15/WebRoot/css/vendors/jqvmap/grunt/concat.js
+END
+index.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/zhengai/!svn/ver/59/zhengai-11.15/WebRoot/css/vendors/jqvmap/grunt/index.js
+END
+uglify.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/zhengai/!svn/ver/59/zhengai-11.15/WebRoot/css/vendors/jqvmap/grunt/uglify.js
+END
+shell.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/zhengai/!svn/ver/59/zhengai-11.15/WebRoot/css/vendors/jqvmap/grunt/shell.js
+END
+clean.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/zhengai/!svn/ver/59/zhengai-11.15/WebRoot/css/vendors/jqvmap/grunt/clean.js
+END
